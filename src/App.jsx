@@ -1,26 +1,34 @@
-import React, { Component, useState } from 'react';
-import logo from './logo.svg';
+import React, { useReducer } from 'react';
 import './App.css';
 
+import { initialState, reducer } from './form/reducers';
+import actions from './form/actions';
+
 const App = () => {
-  useState();
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { firstCount, secondCount } = state;
+
+  const handleButtonAddClick = () => {
+    dispatch(actions.increment(5));
+  };
+
+  const handleButtonSubtractClick = () => {
+    dispatch(actions.decrement(10));
+  };
+  // Use the Consumer to grab the value from context
+  // Notice this component didn't get any props!
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <p>
+        total is {firstCount} {secondCount}
+      </p>
+      <button type="button" onClick={handleButtonAddClick}>
+        Add
+      </button>
+      <button type="button" onClick={handleButtonSubtractClick}>
+        Subtract
+      </button>
+    </>
   );
 };
 
