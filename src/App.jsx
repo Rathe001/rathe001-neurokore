@@ -1,30 +1,31 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Store } from './Store';
-import { StoreProvider } from './Store';
+import { connect } from 'react-redux';
+import uiActions from 'core/ui/actions';
 
-const MyApp = () => {
-  const { state, dispatch } = useContext(Store);
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
+const App = ({ splash, toggleSplash }) => {
+  console.log(splash);
   return (
     <>
-      <h1>My app</h1>
-      <p>Testing styles</p>
+      <button type="button" onClick={toggleSplash}>
+        TEST
+      </button>
+      {splash ? <span>SPLASH SCREEN!!!</span> : <span>Normal screen</span>}
     </>
-  );
-};
-
-const App = () => {
-  return (
-    <StoreProvider>
-      <MyApp />
-    </StoreProvider>
   );
 };
 
 App.propTypes = {};
 
-export default App;
+const mapStateToProps = ({ ui }) => ({
+  splash: ui.splash,
+});
+
+const mapDispatchToProps = {
+  toggleSplash: uiActions.toggleSplash,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);
