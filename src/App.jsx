@@ -3,27 +3,33 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import uiActions from 'core/ui/actions';
+import VARIABLES from 'config/variables';
+import background from 'assets/img/bg-ui.png';
 
 const styles = {
+  '@global': {
+    '*': {
+      'box-sizing': 'border-box',
+      'image-rendering': 'pixelated',
+      'user-select': 'none',
+    },
+  },
   app: {
-    background: 'green',
+    background: `url(${background}) 0 0 no-repeat`,
     color: 'red',
     position: 'absolute',
     top: '50%',
     left: '50%',
-    width: 320,
-    height: 200,
+    width: VARIABLES.ui.width,
+    height: VARIABLES.ui.height,
     margin: [-100, 0, 0, -160],
   },
 };
 
 const getScaleRatio = () => {
-  const scaleRatio =
-    window.innerWidth / window.innerHeight < styles.app.width / styles.app.height
-      ? window.innerWidth / styles.app.width
-      : window.innerHeight / styles.app.height;
-
-  return scaleRatio;
+  return window.innerWidth / window.innerHeight < VARIABLES.ui.width / VARIABLES.ui.height
+    ? window.innerWidth / VARIABLES.ui.width
+    : window.innerHeight / VARIABLES.ui.height;
 };
 
 const BareApp = ({ classes, splash, toggleSplash }) => {
