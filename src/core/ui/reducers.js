@@ -5,7 +5,13 @@ const reducer = (state = {}, action) => {
     case uiActions.TOGGLE_SPLASH:
       return {
         ...state,
-        splash: !state.splash,
+        showSplash: !state.showSplash,
+      };
+
+    case uiActions.TOGGLE_CHARACTER_CREATION:
+      return {
+        ...state,
+        showCharacterCreation: !state.showCharacterCreation,
       };
 
     default:

@@ -8,8 +8,16 @@ const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {
   ui: {
-    splash: false,
+    showSplash: true,
   },
+  /*
+  party: {
+    characters: [],
+    buffs: [],
+    debuffs: [],
+  },
+  characters: [],
+  */
 };
 
 // eslint-disable-next-line

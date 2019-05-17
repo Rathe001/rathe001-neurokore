@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
+import classnames from 'classnames';
+
 import uiActions from 'core/ui/actions';
-import VARIABLES from 'config/variables';
-import background from 'assets/img/bg-ui.png';
+import { VARIABLES } from 'config/common';
+import Ui from 'components/Ui';
+import Splash from 'components/Splash';
 
 const styles = {
   '@global': {
@@ -13,16 +16,23 @@ const styles = {
       'image-rendering': 'pixelated',
       'user-select': 'none',
     },
+    body: {
+      background: '#000',
+    },
   },
   app: {
-    background: `url(${background}) 0 0 no-repeat`,
-    color: 'red',
+    fontSize: `${VARIABLES.ui.width * 0.1}px`,
+    background: `#000`,
+    fontFamily: 'VT323',
     position: 'absolute',
     top: '50%',
     left: '50%',
     width: VARIABLES.ui.width,
     height: VARIABLES.ui.height,
-    margin: [-100, 0, 0, -160],
+    margin: [-(VARIABLES.ui.height / 2), 0, 0, -(VARIABLES.ui.width / 2)],
+  },
+  hidden: {
+    display: 'none',
   },
 };
 
@@ -32,7 +42,7 @@ const getScaleRatio = () => {
     : window.innerHeight / VARIABLES.ui.height;
 };
 
-const BareApp = ({ classes, splash, toggleSplash }) => {
+const BareApp = ({ classes, showSplash, toggleSplash }) => {
   const [scaleRatio, setScaleRatio] = useState(getScaleRatio());
 
   useEffect(() => {
@@ -44,22 +54,20 @@ const BareApp = ({ classes, splash, toggleSplash }) => {
   }, []);
   return (
     <div className={classes.app} style={{ transform: `scale(${scaleRatio},${scaleRatio})` }}>
-      <button type="button" onClick={toggleSplash}>
-        TEST
-      </button>
-      {splash ? <span>SPLASH SCREEN!!!</span> : <span>Normal screen</span>}
+      <Splash onClick={toggleSplash} className={classnames({ [classes.hidden]: !showSplash })} />
+      <Ui />
     </div>
   );
 };
 
 BareApp.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  splash: PropTypes.bool.isRequired,
+  showSplash: PropTypes.bool.isRequired,
   toggleSplash: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ ui }) => ({
-  splash: ui.splash,
+  showSplash: ui.showSplash,
 });
 
 const mapDispatchToProps = {
