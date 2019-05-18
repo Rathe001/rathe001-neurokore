@@ -8,7 +8,10 @@ const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {
   ui: {
-    showSplash: true,
+    splash: {
+      show: true,
+      dialog: '',
+    },
   },
   /*
   party: {

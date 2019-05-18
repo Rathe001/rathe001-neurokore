@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
-import classnames from 'classnames';
 
-import uiActions from 'core/ui/actions';
 import { VARIABLES } from 'config/common';
 import Ui from 'components/Ui';
 import Splash from 'components/Splash';
@@ -30,9 +28,7 @@ const styles = {
     width: VARIABLES.ui.width,
     height: VARIABLES.ui.height,
     margin: [-(VARIABLES.ui.height / 2), 0, 0, -(VARIABLES.ui.width / 2)],
-  },
-  hidden: {
-    display: 'none',
+    overflow: 'hidden',
   },
 };
 
@@ -42,7 +38,7 @@ const getScaleRatio = () => {
     : window.innerHeight / VARIABLES.ui.height;
 };
 
-const BareApp = ({ classes, showSplash, toggleSplash }) => {
+const BareApp = ({ classes }) => {
   const [scaleRatio, setScaleRatio] = useState(getScaleRatio());
 
   useEffect(() => {
@@ -54,7 +50,7 @@ const BareApp = ({ classes, showSplash, toggleSplash }) => {
   }, []);
   return (
     <div className={classes.app} style={{ transform: `scale(${scaleRatio},${scaleRatio})` }}>
-      <Splash onClick={toggleSplash} className={classnames({ [classes.hidden]: !showSplash })} />
+      <Splash />
       <Ui />
     </div>
   );
@@ -62,17 +58,11 @@ const BareApp = ({ classes, showSplash, toggleSplash }) => {
 
 BareApp.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  showSplash: PropTypes.bool.isRequired,
-  toggleSplash: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ ui }) => ({
-  showSplash: ui.showSplash,
-});
+const mapStateToProps = () => ({});
 
-const mapDispatchToProps = {
-  toggleSplash: uiActions.toggleSplash,
-};
+const mapDispatchToProps = {};
 
 const StyledApp = withStyles(styles)(BareApp);
 
