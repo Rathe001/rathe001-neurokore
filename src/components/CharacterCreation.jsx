@@ -8,12 +8,13 @@ const styles = {
   characterCreation: {
     position: 'absolute',
     cursor: 'pointer',
-    top: '4.2%',
+    top: 7,
+    fontSize: 13,
     background: `url(${background}) 0 0 no-repeat`,
     backgroundSize: '100% 100%',
-    left: '8.6%',
-    width: '46%',
-    height: '68%',
+    left: 10,
+    width: 136,
+    height: 145,
   },
 };
 
