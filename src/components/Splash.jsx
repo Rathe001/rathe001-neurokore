@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import classnames from 'classnames';
-import uiActions from 'core/ui/actions';
+import splashActions from 'core/splash/actions';
 import splashBg from 'assets/img/bg-splash.png';
 
 const styles = {
@@ -73,7 +73,7 @@ const mapStateToProps = ({ ui }) => ({
 });
 
 const mapDispatchToProps = {
-  toggleSplash: uiActions.toggleSplash,
+  toggleSplash: splashActions.toggleSplash,
 };
 
 const StyledSplash = withStyles(styles)(Splash);

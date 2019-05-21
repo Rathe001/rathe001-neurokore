@@ -10,7 +10,14 @@ const initialState = {
   ui: {
     splash: {
       show: true,
-      dialog: '',
+      text: '',
+    },
+    dialog: {
+      show: true,
+      text: '',
+    },
+    characterCreation: {
+      show: false,
     },
   },
   /*

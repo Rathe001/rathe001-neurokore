@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import classnames from 'classnames';
-import uiActions from 'core/ui/actions';
+import dialogActions from 'core/dialog/actions';
 
 const styles = {
   dialog: {
@@ -14,7 +14,7 @@ const styles = {
   },
 };
 
-const Splash = ({ classes, toggleSplash, showSplash }) => {
+const Dialog = ({ classes, toggleSplash, showSplash }) => {
   return (
     <div
       onClick={toggleSplash}
@@ -28,21 +28,21 @@ const Splash = ({ classes, toggleSplash, showSplash }) => {
   );
 };
 
-Splash.propTypes = {
+Dialog.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   toggleSplash: PropTypes.func.isRequired,
   showSplash: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ ui }) => ({
-  showSplash: ui.splash.show,
+  showDialog: ui.dialog.show,
 });
 
 const mapDispatchToProps = {
-  toggleSplash: uiActions.toggleSplash,
+  toggleDialog: dialogActions.toggleDialog,
 };
 
-const StyledSplash = withStyles(styles)(Splash);
+const StyledSplash = withStyles(styles)(Dialog);
 
 export default connect(
   mapStateToProps,

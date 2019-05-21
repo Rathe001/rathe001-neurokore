@@ -23,11 +23,11 @@ const Ui = ({ classes, showCharacterCreation }) => {
 
 Ui.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  showCharacterCreation: PropTypes.func.isRequired,
+  showCharacterCreation: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ ui }) => ({
-  showCharacterCreation: ui.showCharacterCreation,
+  showCharacterCreation: ui.characterCreation.show,
 });
 const mapDispatchToProps = {};
 
