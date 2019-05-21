@@ -8,43 +8,48 @@ import dialogActions from 'core/dialog/actions';
 const styles = {
   dialog: {
     position: 'absolute',
-    width: 100,
-    height: 100,
-    background: 'red',
+    top: 159,
+    left: 11,
+    width: 299,
+    padding: 5,
+    height: 25,
+    overflow: 'hidden',
+    color: 'green',
   },
 };
 
-const Dialog = ({ classes, toggleSplash, showSplash }) => {
+const Dialog = ({ classes, showDialog }) => {
   return (
     <div
-      onClick={toggleSplash}
-      className={classnames(classes.splash, {
-        [classes.hidden]: !showSplash,
+      className={classnames(classes.dialog, {
+        [classes.hidden]: !showDialog,
       })}
     >
-      <span className={classes.logo}>[Insert Title Here]</span>
-      <span className={classes.start}>Click to start</span>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis rhoncus sem quis
+        facilisis. Vivamus eu tortor id purus rhoncus rhoncus. Morbi nec rhoncus felis. Aenean eu
+        placerat metus. Nunc vitae ipsum congue, sagittis mauris eu, volutpat tortor. In tincidunt
+        rutrum mi ac imperdiet. Fusce commodo placerat dolor ut lobortis. Maecenas ut nulla id lorem
+        porttitor hendrerit sit amet nec dolor.
+      </p>
     </div>
   );
 };
 
 Dialog.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  toggleSplash: PropTypes.func.isRequired,
-  showSplash: PropTypes.bool.isRequired,
+  showDialog: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ ui }) => ({
-  showDialog: ui.dialog.show,
+const mapStateToProps = ({ dialog }) => ({
+  showDialog: dialog.show,
 });
 
-const mapDispatchToProps = {
-  toggleDialog: dialogActions.toggleDialog,
-};
+const mapDispatchToProps = {};
 
-const StyledSplash = withStyles(styles)(Dialog);
+const StyledDialog = withStyles(styles)(Dialog);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(StyledSplash);
+)(StyledDialog);

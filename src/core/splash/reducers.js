@@ -1,9 +1,8 @@
-import splashActions from './actions';
+import actions from './actions';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    case splashActions.TOGGLE_SPLASH:
-      console.log(state);
+    case actions.TOGGLE_SPLASH:
       return {
         ...state,
         show: !state.show,

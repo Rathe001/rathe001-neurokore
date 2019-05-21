@@ -8,18 +8,25 @@ const styles = {
   characterCreation: {
     position: 'absolute',
     cursor: 'pointer',
-    top: 7,
+    padding: 5,
+    top: 18,
     fontSize: 13,
     background: `url(${background}) 0 0 no-repeat`,
     backgroundSize: '100% 100%',
-    left: 10,
-    width: 136,
-    height: 145,
+    left: 11,
+    width: 134,
+    height: 134,
   },
 };
 
 const CharacterCreation = ({ classes }) => {
-  return <div className={classes.characterCreation}>CHARACTER CREATION</div>;
+  return (
+    <div className={classes.characterCreation}>
+      <h1>Add a new character</h1>
+      <p>Character creation</p>
+      <input type="text" />
+    </div>
+  );
 };
 
 CharacterCreation.propTypes = {

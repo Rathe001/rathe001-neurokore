@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import background from 'assets/img/bg-ui.png';
+import logo from 'assets/img/logo.png';
 import CharacterCreation from './CharacterCreation';
 
 const styles = {
@@ -15,10 +16,21 @@ const styles = {
     width: '100%',
     height: '100%',
   },
+  logo: {
+    height: 21,
+    left: 40,
+    top: -2,
+    position: 'absolute',
+  },
 };
 
 const Ui = ({ classes, showCharacterCreation }) => {
-  return <div className={classes.ui}>{showCharacterCreation && <CharacterCreation />}</div>;
+  return (
+    <div className={classes.ui}>
+      <img src={logo} alt="New Game+" className={classes.logo} />
+      {showCharacterCreation && <CharacterCreation />}
+    </div>
+  );
 };
 
 Ui.propTypes = {
@@ -26,8 +38,8 @@ Ui.propTypes = {
   showCharacterCreation: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ ui }) => ({
-  showCharacterCreation: ui.characterCreation.show,
+const mapStateToProps = ({ characterCreation }) => ({
+  showCharacterCreation: characterCreation.show,
 });
 const mapDispatchToProps = {};
 

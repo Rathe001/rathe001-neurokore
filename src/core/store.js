@@ -7,18 +7,16 @@ import coreSagas from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {
-  ui: {
-    splash: {
-      show: true,
-      text: '',
-    },
-    dialog: {
-      show: true,
-      text: '',
-    },
-    characterCreation: {
-      show: false,
-    },
+  splash: {
+    show: true,
+    text: '',
+  },
+  dialog: {
+    show: true,
+    text: '',
+  },
+  characterCreation: {
+    show: false,
   },
   /*
   party: {

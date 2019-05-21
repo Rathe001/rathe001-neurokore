@@ -5,6 +5,8 @@ import withStyles from 'react-jss';
 import classnames from 'classnames';
 import splashActions from 'core/splash/actions';
 import splashBg from 'assets/img/bg-splash.png';
+import logo from 'assets/img/logo.png';
+import { VARIABLES } from 'config/common';
 
 const styles = {
   splash: {
@@ -13,7 +15,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'red',
+    color: 'blue',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -22,6 +24,7 @@ const styles = {
     zIndex: 9999,
     opacity: 1,
     transition: '1s all',
+    transitionTimingFunction: `steps(${VARIABLES.ui.fps})`,
     background: `url(${splashBg}) 0 0 no-repeat`,
     backgroundSize: 'auto 100%',
   },
@@ -31,12 +34,12 @@ const styles = {
     transform: 'scale(1.3)',
   },
   logo: {
-    fontSize: 24,
+    margin: '0 auto',
   },
   start: {
     textShadow: '0 0 6px rgba(0, 0, 0, 0.9)',
     opacity: 1,
-    animation: 'flickerAnimation 1s infinite',
+    animation: `flickerAnimation 2s infinite steps(${VARIABLES.ui.fps})`,
     fontSize: 16,
     display: 'block',
   },
@@ -56,7 +59,7 @@ const Splash = ({ classes, toggleSplash, showSplash }) => {
         [classes.hidden]: !showSplash,
       })}
     >
-      <span className={classes.logo}>[Insert Title Here]</span>
+      <img src={logo} className={classes.logo} />
       <span className={classes.start}>Click to start</span>
     </div>
   );
@@ -68,8 +71,8 @@ Splash.propTypes = {
   showSplash: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ ui }) => ({
-  showSplash: ui.splash.show,
+const mapStateToProps = ({ splash }) => ({
+  showSplash: splash.show,
 });
 
 const mapDispatchToProps = {
