@@ -9,23 +9,33 @@ const sagaMiddleware = createSagaMiddleware();
 const initialState = {
   splash: {
     show: true,
-    text: '',
   },
   dialog: {
     show: true,
+    prevText: '',
     text: '',
   },
   characterCreation: {
     show: false,
+    name: '',
+    remaining: 50,
+    STR: 0,
+    DEX: 0,
+    INT: 0,
+    MAR: 0,
+    BRA: 0,
+    ENE: 0,
+    KIN: 0,
+    LOT: 0,
+    HIT: 0,
+    LEA: 0,
   },
-  /*
   party: {
     characters: [],
-    buffs: [],
+    buffs: [{}, {}, {}, {}, {}],
     debuffs: [],
   },
-  characters: [],
-  */
+  // characters: [],
 };
 
 // eslint-disable-next-line

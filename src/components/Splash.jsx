@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import splashActions from 'core/splash/actions';
 import splashBg from 'assets/img/bg-splash.png';
 import logo from 'assets/img/logo.png';
-import { VARIABLES } from 'config/common';
+import { VARIABLES } from 'constants/config';
 
 const styles = {
   splash: {
@@ -59,7 +59,7 @@ const Splash = ({ classes, toggleSplash, showSplash }) => {
         [classes.hidden]: !showSplash,
       })}
     >
-      <img src={logo} className={classes.logo} />
+      <img src={logo} className={classes.logo} alt="New Game+" />
       <span className={classes.start}>Click to start</span>
     </div>
   );
@@ -76,7 +76,7 @@ const mapStateToProps = ({ splash }) => ({
 });
 
 const mapDispatchToProps = {
-  toggleSplash: splashActions.toggleSplash,
+  toggleSplash: splashActions.toggle,
 };
 
 const StyledSplash = withStyles(styles)(Splash);

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import background from 'assets/img/bg-ui.png';
 import logo from 'assets/img/logo.png';
-import CharacterCreation from './CharacterCreation';
+import CharacterCreation from 'components/CharacterCreation';
+import Dialog from 'components/Dialog';
 
 const styles = {
   ui: {
@@ -18,7 +19,7 @@ const styles = {
   },
   logo: {
     height: 21,
-    left: 40,
+    left: 30,
     top: -2,
     position: 'absolute',
   },
@@ -29,6 +30,7 @@ const Ui = ({ classes, showCharacterCreation }) => {
     <div className={classes.ui}>
       <img src={logo} alt="New Game+" className={classes.logo} />
       {showCharacterCreation && <CharacterCreation />}
+      <Dialog />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import classnames from 'classnames';
-import dialogActions from 'core/dialog/actions';
+// import dialogActions from 'core/dialog/actions';
 
 const styles = {
   dialog: {
@@ -15,23 +15,18 @@ const styles = {
     height: 25,
     overflow: 'hidden',
     color: 'green',
+    fontSize: 5,
   },
 };
 
-const Dialog = ({ classes, showDialog }) => {
+const Dialog = ({ classes, showDialog, text }) => {
   return (
     <div
       className={classnames(classes.dialog, {
         [classes.hidden]: !showDialog,
       })}
     >
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis rhoncus sem quis
-        facilisis. Vivamus eu tortor id purus rhoncus rhoncus. Morbi nec rhoncus felis. Aenean eu
-        placerat metus. Nunc vitae ipsum congue, sagittis mauris eu, volutpat tortor. In tincidunt
-        rutrum mi ac imperdiet. Fusce commodo placerat dolor ut lobortis. Maecenas ut nulla id lorem
-        porttitor hendrerit sit amet nec dolor.
-      </p>
+      {text}
     </div>
   );
 };
@@ -39,10 +34,12 @@ const Dialog = ({ classes, showDialog }) => {
 Dialog.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   showDialog: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({ dialog }) => ({
   showDialog: dialog.show,
+  text: dialog.text,
 });
 
 const mapDispatchToProps = {};
