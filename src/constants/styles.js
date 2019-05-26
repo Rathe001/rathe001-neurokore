@@ -44,7 +44,7 @@ export const JSS_GLOBAL = {
   },
   'input:focus, textarea:focus, button:focus': {
     outline: 'none',
-    background: 'rgba(255, 255, 255, 0.5)',
+    background: 'rgba(255, 255, 255, 0.1)',
   },
   '@font-face': {
     fontFamily: 'ManaspaceReg',

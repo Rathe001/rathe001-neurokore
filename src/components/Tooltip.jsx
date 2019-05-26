@@ -28,7 +28,7 @@ const styles = {
     background: '#031627',
     border: '1px solid #333',
     borderRight: 'none',
-    padding: '5px 0 6px 2px',
+    padding: '2px 0 2px 2px',
   },
 };
 

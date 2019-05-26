@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
+import tooltipActions from 'core/tooltip/actions';
 import bgMember from 'assets/img/bg-member.png';
 import bgBar from 'assets/img/bg-bar.png';
 import barHp from 'assets/img/bg-barHp.png';
@@ -19,8 +20,8 @@ const styles = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     fontSize: 9,
-    top: 2,
-    left: 3,
+    top: 3,
+    left: 2,
     color: '#fff',
   },
   hp: {
@@ -57,17 +58,29 @@ const styles = {
   },
 };
 
-const Member = ({ classes, data }) => {
+const Member = ({ classes, data, setTooltipText }) => {
   return (
     <li className={classes.member}>
       <div className={classes.name}>{data.name}</div>
-      <div className={classes.hp}>
+      <div
+        className={classes.hp}
+        onMouseEnter={() => setTooltipText(`HP: ${data.HP_CUR} / ${data.HP_MAX}`)}
+        onMouseLeave={() => setTooltipText('')}
+      >
         {data.HP_CUR}
         <div className={classes.barBg}>
           <div className={classes.barHp} />
         </div>
       </div>
-      {data.MP_MAX > 0 && <span className={classes.mp}>{data.MP_CUR}</span>}
+      {data.MP_MAX > 0 && (
+        <span
+          className={classes.mp}
+          onMouseEnter={() => setTooltipText(`MP: ${data.MP_CUR} / ${data.MP_MAX}`)}
+          onMouseLeave={() => setTooltipText('')}
+        >
+          {data.MP_CUR}
+        </span>
+      )}
     </li>
   );
 };
@@ -75,11 +88,14 @@ const Member = ({ classes, data }) => {
 Member.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({}).isRequired,
+  setTooltipText: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  setTooltipText: tooltipActions.setText,
+};
 
 const StyledMember = withStyles(styles)(Member);
 

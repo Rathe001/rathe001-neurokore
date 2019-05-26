@@ -33,9 +33,10 @@ const styles = {
     left: 5,
   },
   button: {
-    padding: '1px 0 0 0',
+    padding: '1px 3px 1px 3px',
     background: 'none',
     border: 'none',
+    cursor: 'pointer',
   },
   add: {
     position: 'absolute',
@@ -95,12 +96,11 @@ const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, rem
             <button className={classes.button} type="button" onClick={() => subtractAttr(stat)}>
               -
             </button>
-            <span className={classes.current}> {stats[stat.abbr]} </span>
+            <span className={classes.current}>{stats[stat.abbr]}</span>
             <button className={classes.button} type="button" onClick={() => addAttr(stat)}>
               +
             </button>
             <span>
-              {' '}
               {stat.name} ({stat.cost})
             </span>
           </div>
