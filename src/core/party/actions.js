@@ -3,7 +3,7 @@ const actions = {
   PARTY_ADD_CHARACTER_SUCCESS: 'PARTY_ADD_CHARACTER_SUCCESS',
   PARTY_ADD_CHARACTER_FAILURE: 'PARTY_ADD_CHARACTER_FAILURE',
   addCharacter: payload => ({
-    type: actions.TOGGLE,
+    type: actions.ADD_CHARACTER,
     payload,
   }),
 };

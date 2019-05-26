@@ -31,6 +31,7 @@ export const JSS_GLOBAL = {
     imageRendering: 'pixelated',
     userSelect: 'none',
     fontFamily: 'ManaspaceReg',
+    letterSpacing: -0.25,
     fontSize: 6,
   },
   body: {

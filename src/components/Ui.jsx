@@ -6,6 +6,7 @@ import background from 'assets/img/bg-ui.png';
 import logo from 'assets/img/logo.png';
 import CharacterCreation from 'components/CharacterCreation';
 import Dialog from 'components/Dialog';
+import Party from 'components/Party';
 
 const styles = {
   ui: {
@@ -18,9 +19,9 @@ const styles = {
     height: '100%',
   },
   logo: {
-    height: 21,
-    left: 30,
-    top: -2,
+    height: 18,
+    top: 2,
+    right: 12,
     position: 'absolute',
   },
 };
@@ -31,6 +32,7 @@ const Ui = ({ classes, showCharacterCreation }) => {
       <img src={logo} alt="New Game+" className={classes.logo} />
       {showCharacterCreation && <CharacterCreation />}
       <Dialog />
+      <Party />
     </div>
   );
 };

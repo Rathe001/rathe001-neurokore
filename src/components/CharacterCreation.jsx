@@ -12,13 +12,13 @@ const styles = {
   characterCreation: {
     position: 'absolute',
     padding: 5,
-    top: 18,
     fontSize: 13,
     background: `url(${background}) 0 0 no-repeat`,
     backgroundSize: '100% 100%',
-    left: 11,
-    width: 134,
-    height: 134,
+    top: 7,
+    left: 10,
+    width: 145,
+    height: 145,
   },
   title: {
     textAlign: 'center',
@@ -101,7 +101,7 @@ const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, rem
             </button>
             <span>
               {' '}
-              {stat.name}({stat.cost})
+              {stat.name} ({stat.cost})
             </span>
           </div>
         ))}

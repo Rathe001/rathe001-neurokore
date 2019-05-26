@@ -11,11 +11,11 @@ const styles = {
     top: 159,
     left: 11,
     width: 299,
-    padding: 5,
-    height: 25,
+    padding: '3px 4px',
+    height: 33,
     overflow: 'hidden',
-    color: 'green',
-    fontSize: 5,
+    color: 'blue',
+    fontSize: 6,
   },
 };
 

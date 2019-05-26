@@ -35,6 +35,7 @@ const styles = {
   },
   logo: {
     margin: '0 auto',
+    height: 50,
   },
   start: {
     textShadow: '0 0 6px rgba(0, 0, 0, 0.9)',

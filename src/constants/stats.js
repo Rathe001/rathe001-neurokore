@@ -12,7 +12,7 @@ export const STATS = [
     name: 'Dexterity',
     abbr: 'DEX',
     desc:
-      'High dexterity raises your chance to hit the enemy, and lowers the chance to get hit yourself.',
+      'High dexterity raises your chance to hit the enemy, lowers the chance to get hit yourself, and increases stamina.',
     cost: 2,
   },
   {
