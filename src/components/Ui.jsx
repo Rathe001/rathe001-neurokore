@@ -7,6 +7,7 @@ import logo from 'assets/img/logo.png';
 import CharacterCreation from 'components/CharacterCreation';
 import Dialog from 'components/Dialog';
 import Party from 'components/Party';
+import Tooltip from 'components/Tooltip';
 
 const styles = {
   ui: {
@@ -32,6 +33,7 @@ const Ui = ({ classes, showCharacterCreation }) => {
       <img src={logo} alt="New Game+" className={classes.logo} />
       {showCharacterCreation && <CharacterCreation />}
       <Dialog />
+      <Tooltip />
       <Party />
     </div>
   );

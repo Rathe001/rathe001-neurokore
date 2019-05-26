@@ -15,6 +15,10 @@ const initialState = {
     prevText: '',
     text: '',
   },
+  tooltip: {
+    show: false,
+    text: '',
+  },
   characterCreation: {
     show: false,
     name: '',
@@ -23,7 +27,7 @@ const initialState = {
     DEX: 0,
     INT: 0,
     MAR: 0,
-    BRA: 0,
+    PER: 0,
     ENE: 0,
     KIN: 0,
     LOT: 0,

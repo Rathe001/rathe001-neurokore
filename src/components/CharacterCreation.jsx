@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import background from 'assets/img/bg-create-character.png';
 import { STATS } from 'constants/stats';
-import { DIALOG } from 'constants/locale';
-import dialogActions from 'core/dialog/actions';
+import tooltipActions from 'core/tooltip/actions';
 import characterCreationActions from 'core/characterCreation/actions';
 
 const styles = {
@@ -90,7 +89,8 @@ const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, rem
             key={stat.id}
             onMouseOver={() => setText(stat.desc)}
             onFocus={() => setText(stat.desc)}
-            onMouseLeave={() => setText(DIALOG.characterCreation.intro)}
+            onBlur={() => setText('')}
+            onMouseLeave={() => setText('')}
           >
             <button className={classes.button} type="button" onClick={() => subtractAttr(stat)}>
               -
@@ -132,7 +132,7 @@ const mapStateToProps = ({ characterCreation }) => ({
   stats: characterCreation,
 });
 const mapDispatchToProps = {
-  setText: dialogActions.setText,
+  setText: tooltipActions.setText,
   setAttr: characterCreationActions.setAttr,
   addCharacter: characterCreationActions.addCharacter,
 };

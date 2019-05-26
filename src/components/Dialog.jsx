@@ -14,7 +14,7 @@ const styles = {
     padding: '3px 4px',
     height: 33,
     overflow: 'hidden',
-    color: 'blue',
+    color: '#fff',
     fontSize: 6,
   },
 };
@@ -34,7 +34,7 @@ const Dialog = ({ classes, showDialog, text }) => {
 Dialog.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   showDialog: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.node.isRequired,
 };
 
 const mapStateToProps = ({ dialog }) => ({
