@@ -2,10 +2,11 @@ import actions from './actions';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    case actions.ADD_CHARACTER:
+    case actions.TOGGLE:
       return {
         ...state,
         show: !state.show,
+        character: action.payload,
       };
     default:
       return state;

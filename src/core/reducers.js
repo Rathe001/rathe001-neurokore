@@ -5,6 +5,7 @@ import dialog from 'core/dialog/reducers';
 import tooltip from 'core/tooltip/reducers';
 import characterCreation from 'core/characterCreation/reducers';
 import party from 'core/party/reducers';
+import inventory from 'core/inventory/reducers';
 
 export default combineReducers({
   ui,
@@ -13,4 +14,5 @@ export default combineReducers({
   tooltip,
   characterCreation,
   party,
+  inventory,
 });

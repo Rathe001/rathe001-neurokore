@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import tooltipActions from 'core/tooltip/actions';
+import inventoryActions from 'core/inventory/actions';
 import bgMember from 'assets/img/bg-member.png';
 import bgBar from 'assets/img/bg-bar.png';
 import barHp from 'assets/img/bg-barHp.png';
@@ -58,9 +59,9 @@ const styles = {
   },
 };
 
-const Member = ({ classes, data, setTooltipText }) => {
+const Member = ({ classes, data, setTooltipText, toggleInventory }) => {
   return (
-    <li className={classes.member}>
+    <li className={classes.member} onClick={() => toggleInventory(data)}>
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
@@ -89,12 +90,14 @@ Member.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({}).isRequired,
   setTooltipText: PropTypes.func.isRequired,
+  toggleInventory: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   setTooltipText: tooltipActions.setText,
+  toggleInventory: inventoryActions.toggle,
 };
 
 const StyledMember = withStyles(styles)(Member);

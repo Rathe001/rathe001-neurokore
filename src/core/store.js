@@ -39,7 +39,10 @@ const initialState = {
     buffs: [{}, {}, {}, {}, {}],
     debuffs: [],
   },
-  // characters: [],
+  inventory: {
+    show: false,
+    character: null,
+  },
 };
 
 // eslint-disable-next-line

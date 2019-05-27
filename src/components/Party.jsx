@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import classnames from 'classnames';
-import Member from 'components/Member';
+import Member from 'components/Character';
 
 const styles = {
   party: {

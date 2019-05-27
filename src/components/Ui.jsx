@@ -8,6 +8,7 @@ import CharacterCreation from 'components/CharacterCreation';
 import Dialog from 'components/Dialog';
 import Party from 'components/Party';
 import Tooltip from 'components/Tooltip';
+import Inventory from 'components/Inventory';
 
 const styles = {
   ui: {
@@ -27,11 +28,12 @@ const styles = {
   },
 };
 
-const Ui = ({ classes, showCharacterCreation }) => {
+const Ui = ({ classes, showCharacterCreation, showInventory }) => {
   return (
     <div className={classes.ui}>
       <img src={logo} alt="New Game+" className={classes.logo} />
       {showCharacterCreation && <CharacterCreation />}
+      {showInventory && <Inventory />}
       <Dialog />
       <Tooltip />
       <Party />
@@ -42,10 +44,12 @@ const Ui = ({ classes, showCharacterCreation }) => {
 Ui.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   showCharacterCreation: PropTypes.bool.isRequired,
+  showInventory: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ characterCreation }) => ({
+const mapStateToProps = ({ characterCreation, inventory }) => ({
   showCharacterCreation: characterCreation.show,
+  showInventory: inventory.show,
 });
 const mapDispatchToProps = {};
 
