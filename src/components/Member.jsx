@@ -16,10 +16,10 @@ const styles = {
   },
   name: {
     position: 'absolute',
-    maxWidth: '50%',
+    width: 70,
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    fontSize: 9,
+    fontSize: 8,
     top: 3,
     left: 2,
     color: '#fff',

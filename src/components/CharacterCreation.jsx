@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
+import classnames from 'classnames';
 import background from 'assets/img/bg-create-character.png';
 import { STATS } from 'constants/stats';
 import tooltipActions from 'core/tooltip/actions';
@@ -33,10 +34,18 @@ const styles = {
     left: 5,
   },
   button: {
-    padding: '1px 3px 1px 3px',
-    background: 'none',
     border: 'none',
     cursor: 'pointer',
+    margin: '0 0 1px 0',
+    lineHeight: '6px',
+    padding: '2px 2px 0 2px',
+    background: '#031627',
+    color: '#7da4f4',
+    borderRadius: 2,
+  },
+  disabled: {
+    background: '#555',
+    color: '#fff',
   },
   add: {
     position: 'absolute',
@@ -49,6 +58,9 @@ const styles = {
     width: 12,
     textAlign: 'center',
     display: 'inline-block',
+  },
+  name: {
+    padding: '0 0 0 5px',
   },
 };
 
@@ -82,6 +94,7 @@ const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, rem
           autoCapitalize="off"
           spellCheck="false"
           onChange={e => setAttr('name', e.target.value)}
+          value={stats.name}
         />
       </label>
       <div className={classes.stats}>
@@ -93,14 +106,28 @@ const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, rem
             onBlur={() => setText('')}
             onMouseLeave={() => setText('')}
           >
-            <button className={classes.button} type="button" onClick={() => subtractAttr(stat)}>
+            <button
+              className={classnames(classes.button, {
+                [classes.disabled]: stats[stat.abbr] === 0,
+              })}
+              type="button"
+              onClick={() => subtractAttr(stat)}
+              disabled={stats[stat.abbr] === 0}
+            >
               -
             </button>
             <span className={classes.current}>{stats[stat.abbr]}</span>
-            <button className={classes.button} type="button" onClick={() => addAttr(stat)}>
+            <button
+              className={classnames(classes.button, {
+                [classes.disabled]: remaining === 0,
+              })}
+              type="button"
+              onClick={() => addAttr(stat)}
+              disabled={remaining === 0}
+            >
               +
             </button>
-            <span>
+            <span className={classes.name}>
               {stat.name} ({stat.cost})
             </span>
           </div>

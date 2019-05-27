@@ -22,6 +22,7 @@ function* addCharacter(action) {
     }
 
     yield put(partyActions.addCharacter(stats));
+    yield put(characterCreationActions.reset());
   } catch (e) {
     console.log(e);
   }

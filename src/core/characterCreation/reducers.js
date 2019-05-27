@@ -16,13 +16,14 @@ const reducer = (state = {}, action) => {
 
     case actions.RESET:
       return {
+        ...state,
         name: '',
         remaining: 50,
         STR: 0,
         DEX: 0,
         INT: 0,
         MAR: 0,
-        BRA: 0,
+        PER: 0,
         ENE: 0,
         KIN: 0,
         LOT: 0,

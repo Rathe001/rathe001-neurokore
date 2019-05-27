@@ -42,9 +42,13 @@ export const JSS_GLOBAL = {
     borderRadius: 0,
     background: 'rgba(255, 255, 255, 0.3)',
   },
-  'input:focus, textarea:focus, button:focus': {
+  'input:focus, textarea:focus': {
     outline: 'none',
-    background: 'rgba(255, 255, 255, 0.1)',
+    background: 'rgba(255, 255, 255, 0.5)',
+  },
+  'button:focus': {
+    outline: 'none',
+    background: 'rgba(0, 0, 0, 0.8)',
   },
   '@font-face': {
     fontFamily: 'ManaspaceReg',
