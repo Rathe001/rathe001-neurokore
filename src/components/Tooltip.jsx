@@ -17,18 +17,20 @@ const styles = {
     background: '#031627',
     border: '1px solid #333',
     boxShadow: '0 0 7px rgba(0, 0, 0, 1), 0 0 7px rgba(0, 0, 0, 1)',
+    '&::before': {
+      position: 'absolute',
+      width: 9,
+      height: 15,
+      background: `#031627 url(${iconInfo}) 50% 50% no-repeat`,
+      content: '""',
+      top: -1,
+      left: -9,
+      border: '1px solid #333',
+      borderRight: 'none',
+    },
   },
   hidden: {
     display: 'none',
-  },
-  info: {
-    position: 'absolute',
-    top: -1,
-    left: -9,
-    background: '#031627',
-    border: '1px solid #333',
-    borderRight: 'none',
-    padding: '2px 0 2px 2px',
   },
 };
 
@@ -38,10 +40,8 @@ const Tooltip = ({ classes, showTooltip, text }) => {
       className={classnames(classes.tooltip, {
         [classes.hidden]: !showTooltip,
       })}
-    >
-      <img className={classes.info} src={iconInfo} alt="" />
-      {text}
-    </div>
+      dangerouslySetInnerHTML={{ __html: text }}
+    />
   );
 };
 

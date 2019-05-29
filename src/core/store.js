@@ -48,9 +48,13 @@ const initialState = {
 // eslint-disable-next-line
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const persistedState = localStorage.getItem('reduxState')
+  ? JSON.parse(localStorage.getItem('reduxState'))
+  : initialState;
+
 const store = createStore(
   coreReducers,
-  initialState,
+  persistedState,
   composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
 

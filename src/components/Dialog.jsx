@@ -25,9 +25,8 @@ const Dialog = ({ classes, showDialog, text }) => {
       className={classnames(classes.dialog, {
         [classes.hidden]: !showDialog,
       })}
-    >
-      {text}
-    </div>
+      dangerouslySetInnerHTML={{ __html: text }}
+    />
   );
 };
 

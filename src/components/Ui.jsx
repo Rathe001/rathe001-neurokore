@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import background from 'assets/img/bg-ui.png';
-import logo from 'assets/img/logo.png';
+import logo from 'assets/img/logo-sm.png';
 import CharacterCreation from 'components/CharacterCreation';
 import Dialog from 'components/Dialog';
 import Party from 'components/Party';
@@ -21,7 +21,6 @@ const styles = {
     height: '100%',
   },
   logo: {
-    height: 18,
     top: 2,
     right: 12,
     position: 'absolute',

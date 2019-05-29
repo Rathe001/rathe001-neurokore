@@ -5,6 +5,10 @@ import store from 'core/store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+store.subscribe(() => {
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
