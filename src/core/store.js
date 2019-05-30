@@ -36,12 +36,13 @@ const initialState = {
   },
   party: {
     characters: [],
+    order: [],
     buffs: [{}, {}, {}, {}, {}],
     debuffs: [],
   },
   inventory: {
     show: false,
-    character: null,
+    character: {},
   },
 };
 

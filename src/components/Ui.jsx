@@ -27,12 +27,12 @@ const styles = {
   },
 };
 
-const Ui = ({ classes, showCharacterCreation, showInventory }) => {
+const Ui = ({ classes }) => {
   return (
     <div className={classes.ui}>
       <img src={logo} alt="New Game+" className={classes.logo} />
-      {showCharacterCreation && <CharacterCreation />}
-      {showInventory && <Inventory />}
+      <CharacterCreation />
+      <Inventory />
       <Dialog />
       <Tooltip />
       <Party />
@@ -42,14 +42,9 @@ const Ui = ({ classes, showCharacterCreation, showInventory }) => {
 
 Ui.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  showCharacterCreation: PropTypes.bool.isRequired,
-  showInventory: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ characterCreation, inventory }) => ({
-  showCharacterCreation: characterCreation.show,
-  showInventory: inventory.show,
-});
+const mapStateToProps = () => ({});
 const mapDispatchToProps = {};
 
 const StyledUi = withStyles(styles)(Ui);

@@ -8,6 +8,12 @@ const reducer = (state = {}, action) => {
         show: !state.show,
         character: action.payload,
       };
+    case actions.SHOW:
+      return {
+        ...state,
+        show: true,
+        character: action.payload,
+      };
     default:
       return state;
   }

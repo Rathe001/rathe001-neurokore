@@ -4,6 +4,12 @@ const actions = {
     type: actions.TOGGLE,
     payload,
   }),
+
+  SHOW: 'INVENTORY_SHOW',
+  show: payload => ({
+    type: actions.SHOW,
+    payload,
+  }),
 };
 
 export default actions;

@@ -29,8 +29,7 @@ export const STATS = [
     abbr: 'INT',
     desc: `
       <p>
-        High intelligence allows for increased potency of both high and lo tech, while reducing the
-        material cost of those items. Also increases MP.
+        High intelligence allows for increased potency of both high and lo tech, and increases energy.
       </p>
     `,
     cost: 2,
@@ -77,8 +76,8 @@ export const STATS = [
     name: 'Lo Tech',
     abbr: 'LOT',
     desc: `<p>
-        Allows usage of lo-tech skills - simple, elemental-based gadgets such as moltov coctails or
-        shock grenades. Requires MP.
+        Allows usage of simple, elemental-based gadgets such as moltov coctails or
+        shock grenades. Requires energy.
       </p>`,
     cost: 5,
   },
@@ -87,8 +86,8 @@ export const STATS = [
     name: 'High Tech',
     abbr: 'HIT',
     desc: `<p>
-        Allows usage of high-tech skills - extremely powerful, but demanding gadgets such as
-        doomsday devices or death rays. Requires MP.
+        Allows usage of extremely powerful, but demanding gadgets such as
+        doomsday devices or death rays. Requires energy.
       </p>`,
     cost: 10,
   },

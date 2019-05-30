@@ -20,6 +20,9 @@ const styles = {
     width: 145,
     height: 145,
   },
+  hidden: {
+    display: 'none',
+  },
   title: {
     textAlign: 'center',
   },
@@ -64,7 +67,15 @@ const styles = {
   },
 };
 
-const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, remaining }) => {
+const CharacterCreation = ({
+  classes,
+  setText,
+  setAttr,
+  addCharacter,
+  stats,
+  remaining,
+  showCharacterCreation,
+}) => {
   const subtractAttr = stat => {
     if (stats[stat.abbr] > 0) {
       setAttr(stat.abbr, stats[stat.abbr] - 1);
@@ -80,7 +91,11 @@ const CharacterCreation = ({ classes, setText, setAttr, addCharacter, stats, rem
   };
 
   return (
-    <div className={classes.characterCreation}>
+    <div
+      className={classnames(classes.characterCreation, {
+        [classes.hidden]: !showCharacterCreation,
+      })}
+    >
       <h1 className={classes.title}>Add a new character</h1>
       <span className={classes.sp}>SP: {remaining}</span>
       <label htmlFor="charName">
@@ -152,11 +167,13 @@ CharacterCreation.propTypes = {
   addCharacter: PropTypes.func.isRequired,
   remaining: PropTypes.number.isRequired,
   stats: PropTypes.shape({}).isRequired,
+  showCharacterCreation: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ characterCreation }) => ({
   remaining: characterCreation.remaining,
   stats: characterCreation,
+  showCharacterCreation: characterCreation.show,
 });
 const mapDispatchToProps = {
   setText: tooltipActions.setText,

@@ -7,6 +7,7 @@ import inventoryActions from 'core/inventory/actions';
 import bgMember from 'assets/img/bg-member.png';
 import bgBar from 'assets/img/bg-bar.png';
 import barHp from 'assets/img/bg-barHp.png';
+import iconLightning from 'assets/img/icon-lightning.png';
 
 const styles = {
   member: {
@@ -35,14 +36,23 @@ const styles = {
     right: 2,
     width: '50%',
   },
-  mp: {
+  resources: {
     position: 'absolute',
     textAlign: 'right',
-    color: 'blue',
+    color: 'yellow',
     fontSize: 8,
     bottom: 2,
     right: 4,
-    width: '25%',
+    '&:before': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      content: '""',
+      background: `url(${iconLightning}) 0 0 no-repeat`,
+      height: 9,
+      width: 6,
+      margin: '-1px 0 0 -7px',
+    },
   },
   barBg: {
     position: 'absolute',
@@ -59,13 +69,13 @@ const styles = {
   },
 };
 
-const Member = ({ classes, data, setTooltipText, toggleInventory }) => {
+const Member = ({ classes, data, setTooltipText, showInventory }) => {
   return (
-    <li className={classes.member} onClick={() => toggleInventory(data)}>
+    <li className={classes.member} onClick={() => showInventory(data)}>
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
-        onMouseEnter={() => setTooltipText(`HP: ${data.HP_CUR} / ${data.HP_MAX}`)}
+        onMouseEnter={() => setTooltipText(`Hit Points: ${data.HP_CUR} of ${data.HP_MAX}`)}
         onMouseLeave={() => setTooltipText('')}
       >
         {data.HP_CUR}
@@ -73,13 +83,13 @@ const Member = ({ classes, data, setTooltipText, toggleInventory }) => {
           <div className={classes.barHp} />
         </div>
       </div>
-      {data.MP_MAX > 0 && (
+      {data.ENERGY_MAX > 0 && (
         <span
-          className={classes.mp}
-          onMouseEnter={() => setTooltipText(`MP: ${data.MP_CUR} / ${data.MP_MAX}`)}
+          className={classes.resources}
+          onMouseEnter={() => setTooltipText(`Energy: ${data.ENERGY_CUR} of ${data.ENERGY_MAX}`)}
           onMouseLeave={() => setTooltipText('')}
         >
-          {data.MP_CUR}
+          {data.ENERGY_CUR}
         </span>
       )}
     </li>
@@ -90,14 +100,14 @@ Member.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({}).isRequired,
   setTooltipText: PropTypes.func.isRequired,
-  toggleInventory: PropTypes.func.isRequired,
+  showInventory: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   setTooltipText: tooltipActions.setText,
-  toggleInventory: inventoryActions.toggle,
+  showInventory: inventoryActions.show,
 };
 
 const StyledMember = withStyles(styles)(Member);
