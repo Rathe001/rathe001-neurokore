@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import tooltipActions from 'core/tooltip/actions';
-import inventoryActions from 'core/inventory/actions';
+import characterSheetActions from 'core/characterSheet/actions';
 import bgMember from 'assets/img/bg-member.png';
 import bgBar from 'assets/img/bg-bar.png';
 import barHp from 'assets/img/bg-barHp.png';
@@ -69,9 +69,9 @@ const styles = {
   },
 };
 
-const Member = ({ classes, data, setTooltipText, showInventory }) => {
+const Member = ({ classes, data, setTooltipText, showCharacterSheet }) => {
   return (
-    <li className={classes.member} onClick={() => showInventory(data)}>
+    <li className={classes.member} onClick={() => showCharacterSheet(data)} draggable>
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
@@ -100,14 +100,14 @@ Member.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({}).isRequired,
   setTooltipText: PropTypes.func.isRequired,
-  showInventory: PropTypes.func.isRequired,
+  showCharacterSheet: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   setTooltipText: tooltipActions.setText,
-  showInventory: inventoryActions.show,
+  showCharacterSheet: characterSheetActions.show,
 };
 
 const StyledMember = withStyles(styles)(Member);

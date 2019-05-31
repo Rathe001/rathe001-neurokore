@@ -40,7 +40,7 @@ const initialState = {
     buffs: [{}, {}, {}, {}, {}],
     debuffs: [],
   },
-  inventory: {
+  characterSheet: {
     show: false,
     character: {},
   },

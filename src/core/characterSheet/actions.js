@@ -1,11 +1,11 @@
 const actions = {
-  TOGGLE: 'INVENTORY_TOGGLE',
+  TOGGLE: 'CHARACTER_SHEET_TOGGLE',
   toggle: payload => ({
     type: actions.TOGGLE,
     payload,
   }),
 
-  SHOW: 'INVENTORY_SHOW',
+  SHOW: 'CHARACTER_SHEET_SHOW',
   show: payload => ({
     type: actions.SHOW,
     payload,

@@ -3,12 +3,12 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
-import inventoryActions from 'core/inventory/actions';
+import characterSheetActions from 'core/characterSheet/actions';
 import { VARIABLES } from 'constants/config';
 import inventoryBg from 'assets/img/bg-inventory.png';
 
 const styles = {
-  inventory: {
+  characterSheet: {
     position: 'absolute',
     padding: 5,
     fontSize: 13,
@@ -36,40 +36,40 @@ const styles = {
   },
 };
 
-const Inventory = ({ classes, character, toggleInventory, showInventory }) => {
+const CharacterSheet = ({ classes, character, toggleCharacterSheet, showCharacterSheet }) => {
   return (
     <div
-      className={classnames(classes.inventory, {
-        [classes.hidden]: !showInventory,
+      className={classnames(classes.characterSheet, {
+        [classes.hidden]: !showCharacterSheet,
       })}
     >
       {character.name}
-      <button className={classes.btnClose} type="button" onClick={() => toggleInventory({})}>
+      <button className={classes.btnClose} type="button" onClick={() => toggleCharacterSheet({})}>
         X
       </button>
     </div>
   );
 };
 
-Inventory.propTypes = {
+CharacterSheet.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   character: PropTypes.shape({}).isRequired,
-  toggleInventory: PropTypes.func.isRequired,
-  showInventory: PropTypes.bool.isRequired,
+  toggleCharacterSheet: PropTypes.func.isRequired,
+  showCharacterSheet: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ inventory }) => ({
-  character: inventory.character,
-  showInventory: inventory.show,
+const mapStateToProps = ({ characterSheet }) => ({
+  character: characterSheet.character,
+  showCharacterSheet: characterSheet.show,
 });
 
 const mapDispatchToProps = {
-  toggleInventory: inventoryActions.toggle,
+  toggleCharacterSheet: characterSheetActions.toggle,
 };
 
-const StyledInventory = withStyles(styles)(Inventory);
+const StyledCharacterSheet = withStyles(styles)(CharacterSheet);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(StyledInventory);
+)(StyledCharacterSheet);

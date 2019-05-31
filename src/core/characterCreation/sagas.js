@@ -13,6 +13,7 @@ function* addCharacter(action) {
     ENERGY_MAX: parseInt(action.payload.INT * 3, 10),
     buffs: [],
     debuffs: [],
+    inventory: [],
   };
   stats.HP_CUR = stats.HP_MAX;
   stats.ENERGY_CUR = stats.ENERGY_MAX;

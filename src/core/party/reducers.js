@@ -5,7 +5,6 @@ const reducer = (state = {}, action) => {
     case actions.ADD_CHARACTER:
       return {
         ...state,
-        order: [...state.order, ...[action.payload.id]],
         characters: [...state.characters, action.payload],
       };
     default:

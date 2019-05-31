@@ -8,7 +8,7 @@ import CharacterCreation from 'components/CharacterCreation';
 import Dialog from 'components/Dialog';
 import Party from 'components/Party';
 import Tooltip from 'components/Tooltip';
-import Inventory from 'components/Inventory';
+import CharacterSheet from 'components/CharacterSheet';
 
 const styles = {
   ui: {
@@ -32,7 +32,7 @@ const Ui = ({ classes }) => {
     <div className={classes.ui}>
       <img src={logo} alt="New Game+" className={classes.logo} />
       <CharacterCreation />
-      <Inventory />
+      <CharacterSheet />
       <Dialog />
       <Tooltip />
       <Party />
