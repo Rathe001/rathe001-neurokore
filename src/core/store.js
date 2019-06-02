@@ -35,6 +35,7 @@ const initialState = {
     LEA: 0,
   },
   party: {
+    creationComplete: false,
     characters: [],
     order: [],
     buffs: [{}, {}, {}, {}, {}],
