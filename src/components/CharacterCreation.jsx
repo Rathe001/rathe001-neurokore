@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
@@ -99,6 +99,10 @@ const CharacterCreation = ({
       setAttr('remaining', remaining - stat.cost);
     }
   };
+
+  useEffect(() => {
+    console.log(`Complete: ${creationComplete}`);
+  }, [creationComplete]);
 
   return (
     <div

@@ -21,6 +21,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Neurocore</title>
+    <style>
+      *,
+      *:hover {
+        image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+        image-rendering: -moz-crisp-edges; /* Firefox                        */
+        image-rendering: -o-crisp-edges; /* Opera                          */
+        image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+        image-rendering: pixelated; /* Chrome */
+        image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+        -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

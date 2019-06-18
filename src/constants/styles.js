@@ -28,8 +28,6 @@ export const JSS_RESET = {
 export const JSS_GLOBAL = {
   '*': {
     boxSizing: 'border-box',
-    imageRendering: 'pixelated',
-    userSelect: 'none',
     fontFamily: 'ManaspaceReg',
     letterSpacing: -0.25,
     fontSize: 6,

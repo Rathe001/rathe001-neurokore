@@ -24,13 +24,16 @@ const styles = {
     top: 2,
     right: 12,
     position: 'absolute',
+    height: 19,
+    width: 95,
+    background: `url(${logo}) 0 0 no-repeat`,
   },
 };
 
 const Ui = ({ classes }) => {
   return (
     <div className={classes.ui}>
-      <img src={logo} alt="New Game+" className={classes.logo} />
+      <div className={classes.logo} />
       <CharacterCreation />
       <CharacterSheet />
       <Dialog />
