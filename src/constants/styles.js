@@ -9,6 +9,7 @@ export const JSS_RESET = {
     fontSize: 6,
   },
   '*, *:before, *:after': {
+    overflow: 'hidden',
     boxSizing: 'inherit',
   },
   body: {
