@@ -8,8 +8,13 @@ export const JSS_RESET = {
     boxSizing: 'border-box',
     fontSize: 6,
   },
-  '*, *:before, *:after': {
+  'html, body': {
+    margin: 0,
+    height: '100%',
+    maxHeight: '100%',
     overflow: 'hidden',
+  },
+  '*, *:before, *:after': {
     boxSizing: 'inherit',
   },
   body: {
@@ -22,6 +27,9 @@ export const JSS_RESET = {
   },
   'ol, ul': {
     listStyle: 'none',
+  },
+  div: {
+    userSelect: 'none',
   },
   img: {
     maxWidth: '100%',

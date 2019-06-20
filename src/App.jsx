@@ -38,7 +38,7 @@ const BareApp = ({ classes }) => {
   useEffect(() => {
     window.addEventListener('resize', () => setScaleRatio(getScaleRatio()));
   });
-  console.log(scaleRatio);
+
   return (
     <div className={classes.app} style={{ zoom: `${scaleRatio}` }}>
       <Splash />

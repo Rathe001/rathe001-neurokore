@@ -10,7 +10,7 @@ import barHp from 'assets/img/bg-barHp.png';
 import iconLightning from 'assets/img/icon-lightning.png';
 
 const styles = {
-  member: {
+  character: {
     position: 'relative',
     height: 24,
     width: 110,
@@ -71,7 +71,7 @@ const styles = {
 
 const Member = ({ classes, data, setTooltipText, showCharacterSheet }) => {
   return (
-    <li className={classes.member} onClick={() => showCharacterSheet(data)} draggable>
+    <li className={classes.character} onClick={() => showCharacterSheet(data)}>
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
