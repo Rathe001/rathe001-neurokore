@@ -8,6 +8,11 @@ const reducer = (state = {}, action) => {
         characters: [...state.characters, action.payload],
         creationComplete: state.characters.length + 1 === 5,
       };
+    case actions.SET_CHARACTERS:
+      return {
+        ...state,
+        characters: action.payload,
+      };
     default:
       return state;
   }

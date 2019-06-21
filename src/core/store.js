@@ -7,6 +7,9 @@ import coreSagas from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {
+  ui: {
+    scale: 0,
+  },
   splash: {
     show: true,
   },

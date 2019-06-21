@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
 import { JSS_RESET, JSS_GLOBAL } from 'constants/styles';
 import { VARIABLES } from 'constants/config';
+import uiActions from 'core/ui/actions';
 
 import Ui from 'components/Ui';
 import Splash from 'components/Splash';
@@ -32,15 +33,18 @@ const getScaleRatio = () => {
     : window.innerHeight / VARIABLES.ui.height;
 };
 
-const BareApp = ({ classes }) => {
-  const [scaleRatio, setScaleRatio] = useState(getScaleRatio());
-
+const BareApp = ({ classes, setScale, scale }) => {
   useEffect(() => {
-    window.addEventListener('resize', () => setScaleRatio(getScaleRatio()));
-  });
+    window.addEventListener('resize', () => setScale(getScaleRatio()));
+  }, [scale]);
 
   return (
-    <div className={classes.app} style={{ zoom: `${scaleRatio}` }}>
+    <div
+      className={classes.app}
+      style={{
+        zoom: `${!scale ? getScaleRatio() : scale}`,
+      }}
+    >
       <Splash />
       <Ui />
     </div>
@@ -49,11 +53,21 @@ const BareApp = ({ classes }) => {
 
 BareApp.propTypes = {
   classes: PropTypes.shape({}).isRequired,
+  setScale: PropTypes.func.isRequired,
+  scale: PropTypes.number,
 };
 
-const mapStateToProps = () => ({});
+BareApp.defaultProps = {
+  scale: getScaleRatio(),
+};
 
-const mapDispatchToProps = {};
+const mapStateToProps = ({ ui }) => ({
+  scale: ui.scale,
+});
+
+const mapDispatchToProps = {
+  setScale: uiActions.setScale,
+};
 
 const StyledApp = withStyles(styles)(BareApp);
 

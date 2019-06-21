@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from 'core/store';
+import { DndProvider } from 'react-dnd';
+import MultiBackend from 'react-dnd-multi-backend';
+import HTML5toTouch from 'react-dnd-multi-backend/lib/HTML5toTouch';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -13,7 +16,9 @@ store.subscribe(() => {
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <DndProvider backend={MultiBackend(HTML5toTouch)}>
+      <App />
+    </DndProvider>
   </Provider>,
   document.getElementById('root'),
 );

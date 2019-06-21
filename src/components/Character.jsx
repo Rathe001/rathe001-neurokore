@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
+import { useDrag, useDrop } from 'react-dnd';
+import { DND_ITEM_TYPES } from 'constants/config';
 import tooltipActions from 'core/tooltip/actions';
 import characterSheetActions from 'core/characterSheet/actions';
 import bgMember from 'assets/img/bg-member.png';
@@ -69,9 +71,74 @@ const styles = {
   },
 };
 
-const Member = ({ classes, data, setTooltipText, showCharacterSheet }) => {
+const Character = ({
+  classes,
+  data,
+  setTooltipText,
+  showCharacterSheet,
+  move,
+  index,
+  id,
+  // scaleRatio,
+}) => {
+  const ref = useRef(null);
+  const [, drop] = useDrop({
+    accept: DND_ITEM_TYPES.CHARACTER,
+    hover(item, monitor) {
+      if (!ref.current) {
+        return;
+      }
+      const dragIndex = item.index;
+      const hoverIndex = index;
+      // Don't replace items with themselves
+      if (dragIndex === hoverIndex) {
+        return;
+      }
+      // Determine rectangle on screen
+      const hoverBoundingRect = ref.current.getBoundingClientRect();
+      // Get vertical middle
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      // Determine mouse position
+      const clientOffset = monitor.getClientOffset();
+      // Get pixels to the top
+      const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+      // Only perform the move when the mouse has crossed half of the items height
+      // When dragging downwards, only move when the cursor is below 50%
+      // When dragging upwards, only move when the cursor is above 50%
+      // Dragging downwards
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+        return;
+      }
+      // Dragging upwards
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+        return;
+      }
+      // Time to actually perform the action
+      move(dragIndex, hoverIndex);
+      // Note: we're mutating the monitor item here!
+      // Generally it's better to avoid mutations,
+      // but it's good here for the sake of performance
+      // to avoid expensive index searches.
+      // eslint-disable-next-line
+      item.index = hoverIndex;
+    },
+  });
+  const [{ isDragging }, drag] = useDrag({
+    item: { type: DND_ITEM_TYPES.CHARACTER, id, index },
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+  const opacity = isDragging ? 0 : 1;
+  drag(drop(ref));
+
   return (
-    <li className={classes.character} onClick={() => showCharacterSheet(data)}>
+    <li
+      className={classes.character}
+      ref={ref}
+      style={{ opacity }}
+      onClick={() => showCharacterSheet(data)}
+    >
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
@@ -96,23 +163,28 @@ const Member = ({ classes, data, setTooltipText, showCharacterSheet }) => {
   );
 };
 
-Member.propTypes = {
+Character.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({}).isRequired,
   setTooltipText: PropTypes.func.isRequired,
   showCharacterSheet: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  move: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({ ui }) => ({
+  scaleRatio: ui.scale,
+});
 
 const mapDispatchToProps = {
   setTooltipText: tooltipActions.setText,
   showCharacterSheet: characterSheetActions.show,
 };
 
-const StyledMember = withStyles(styles)(Member);
+const StyledCharacter = withStyles(styles)(Character);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(StyledMember);
+)(StyledCharacter);

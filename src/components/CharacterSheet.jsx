@@ -13,11 +13,10 @@ const styles = {
     padding: 5,
     fontSize: 13,
     color: '#fff',
-    background: `url(${inventoryBg}) 0 0 no-repeat`,
-    backgroundSize: '100% 100%',
+    background: `#000 url(${inventoryBg}) 100% 100% no-repeat`,
     top: 7,
     left: 10,
-    width: 145,
+    width: 190,
     height: 145,
     zIndex: 9999,
     opacity: 1,
@@ -44,6 +43,35 @@ const CharacterSheet = ({ classes, character, toggleCharacterSheet, showCharacte
       })}
     >
       {character.name}
+      <div className={classes.stats}>
+        Remaining SP: {character.remaining}
+        <hr />
+        Health: {character.HP_CUR} of {character.HP_MAX}
+        <br />
+        Energy: {character.ENERGY_CUR} of {character.ENERGY_MAX}
+        <br />
+        <br />
+        STR: {character.STR}
+        <br />
+        DEX: {character.DEX}
+        <br />
+        INT: {character.INT}
+        <br />
+        MAR: {character.MAR}
+        <br />
+        PER: {character.PER}
+        <br />
+        ENE: {character.ENE}
+        <br />
+        KIN: {character.KIN}
+        <br />
+        LOT: {character.LOT}
+        <br />
+        HIT: {character.HIT}
+        <br />
+        LEA: {character.LEA}
+        <br />
+      </div>
       <button className={classes.btnClose} type="button" onClick={() => toggleCharacterSheet({})}>
         X
       </button>

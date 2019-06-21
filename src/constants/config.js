@@ -6,4 +6,8 @@ export const VARIABLES = {
   },
 };
 
-export default { VARIABLES };
+export const DND_ITEM_TYPES = {
+  CHARACTER: 'character',
+};
+
+export default { VARIABLES, DND_ITEM_TYPES };
