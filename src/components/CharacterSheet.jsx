@@ -27,11 +27,31 @@ const styles = {
     opacity: 0,
     zIndex: -1,
   },
+  level: {
+    display: 'flex',
+  },
+  stats: {
+    display: 'flex',
+    width: 125,
+  },
+  name: {
+    fontSize: 8,
+  },
+  col: {
+    flex: 1,
+  },
   btnClose: {
     position: 'absolute',
     right: 0,
     top: 0,
     padding: '2px',
+  },
+  hr: {
+    border: 'none',
+    height: 2,
+    borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
+    background: 'rgba(0, 0, 0, 0.4)',
+    widh: '100%',
   },
 };
 
@@ -42,35 +62,40 @@ const CharacterSheet = ({ classes, character, toggleCharacterSheet, showCharacte
         [classes.hidden]: !showCharacterSheet,
       })}
     >
-      {character.name}
+      <div className={classes.level}>
+        <div className={classes.col}>
+          <div className={classes.name}>{character.name}</div>
+          Level: {character.level} SP: {character.remaining}
+        </div>
+        <div className={classes.col}>
+          Health: {character.HP_CUR} of {character.HP_MAX}
+          <br />
+          Energy: {character.ENERGY_CUR} of {character.ENERGY_MAX}
+        </div>
+      </div>
+      <hr className={classes.hr} />
       <div className={classes.stats}>
-        Remaining SP: {character.remaining}
-        <hr />
-        Health: {character.HP_CUR} of {character.HP_MAX}
-        <br />
-        Energy: {character.ENERGY_CUR} of {character.ENERGY_MAX}
-        <br />
-        <br />
-        STR: {character.STR}
-        <br />
-        DEX: {character.DEX}
-        <br />
-        INT: {character.INT}
-        <br />
-        MAR: {character.MAR}
-        <br />
-        PER: {character.PER}
-        <br />
-        ENE: {character.ENE}
-        <br />
-        KIN: {character.KIN}
-        <br />
-        LOT: {character.LOT}
-        <br />
-        HIT: {character.HIT}
-        <br />
-        LEA: {character.LEA}
-        <br />
+        <div className={classes.col}>
+          STR: {character.STR}
+          <br />
+          DEX: {character.DEX}
+          <br />
+          INT: {character.INT}
+        </div>
+        <div className={classes.col}>
+          MAR: {character.MAR}
+          <br />
+          ENE: {character.ENE}
+          <br />
+          KIN: {character.KIN}
+        </div>
+        <div className={classes.col}>
+          LEA: {character.LEA}
+          <br />
+          LOT: {character.LOT}
+          <br />
+          HIT: {character.HIT}
+        </div>
       </div>
       <button className={classes.btnClose} type="button" onClick={() => toggleCharacterSheet({})}>
         X

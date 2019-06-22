@@ -8,10 +8,11 @@ import iconInfo from 'assets/img/icon-info.png';
 const styles = {
   tooltip: {
     position: 'absolute',
+    minHeight: 16,
     bottom: 6,
     right: 6,
     width: 150,
-    padding: '3px 4px 3px 7px',
+    padding: '5px 4px 3px 7px',
     color: '#7da4f4',
     fontSize: 6,
     background: '#031627',
@@ -20,7 +21,7 @@ const styles = {
     '&::before': {
       position: 'absolute',
       width: 9,
-      height: 15,
+      height: 16,
       background: `#031627 url(${iconInfo}) 50% 50% no-repeat`,
       content: '""',
       top: -1,

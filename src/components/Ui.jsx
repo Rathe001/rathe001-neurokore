@@ -9,6 +9,7 @@ import Dialog from 'components/Dialog';
 import Party from 'components/Party';
 import Tooltip from 'components/Tooltip';
 import CharacterSheet from 'components/CharacterSheet';
+import Menu from 'components/Menu';
 
 const styles = {
   ui: {
@@ -39,6 +40,7 @@ const Ui = ({ classes }) => {
       <Dialog />
       <Tooltip />
       <Party />
+      <Menu />
     </div>
   );
 };

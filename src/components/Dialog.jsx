@@ -11,7 +11,7 @@ const styles = {
     top: 159,
     left: 11,
     width: 299,
-    padding: '3px 4px',
+    padding: '5px',
     height: 33,
     overflow: 'hidden',
     color: '#fff',

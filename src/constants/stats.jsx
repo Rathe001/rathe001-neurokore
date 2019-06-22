@@ -5,11 +5,10 @@ export const STATS = [
     abbr: 'STR',
     desc: `
       <p>
-        Slightly increases damage with all attacks. Strength is also useful to lift heavy objects,
-        and increases HP.
+        Slightly increases damage with all attacks, reduces the effect of ailments, and increases health.
       </p>
     `,
-    cost: 2,
+    cost: 3,
   },
   {
     id: 1,
@@ -17,11 +16,10 @@ export const STATS = [
     abbr: 'DEX',
     desc: `
       <p>
-        High dexterity raises your chance to hit the enemy, lowers the chance to get hit yourself,
-        and increases stamina.
+        Raises your chance to hit the enemy, lowers the chance to get hit yourself, and reduces the damage you take from traps.
       </p>
     `,
-    cost: 2,
+    cost: 3,
   },
   {
     id: 2,
@@ -29,22 +27,10 @@ export const STATS = [
     abbr: 'INT',
     desc: `
       <p>
-        High intelligence allows for increased potency of both high and lo tech, and increases energy.
+        Increased strength of tech, increases chance to discover hidden secrets, and increases energy.
       </p>
     `,
-    cost: 2,
-  },
-  {
-    id: 3,
-    name: 'Perception',
-    abbr: 'PER',
-    desc: `
-      <p>
-        Increases chance to discover hidden secrets, as well as better assess the enemy&lsquo;s
-        strengths and weaknesses.
-      </p>
-    `,
-    cost: 2,
+    cost: 3,
   },
   {
     id: 4,
@@ -52,24 +38,31 @@ export const STATS = [
     abbr: 'MAR',
     desc: `
       <p>
-        Increases damage of unarmed combat, and melee weapons such as swords, axes, and staves.
+        Increases damage of melee range weapons such as swords, axes, and clubs, as well as unarmed combat.
       </p>
     `,
-    cost: 2,
-  },
-  {
-    id: 5,
-    name: 'Energy Weapons',
-    abbr: 'ENE',
-    desc: `<p>Increases damage of energy ranged weapons, such as laser pistols and laser rifles.</p>`,
-    cost: 2,
+    cost: 1,
   },
   {
     id: 6,
     name: 'Kinetic Weapons',
     abbr: 'KIN',
-    desc: `<p>Increases damage of kinetic ranged weapons, such as pistols, rifles, and shotguns.</p>`,
-    cost: 2,
+    desc: `<p>Increases damage of medium ranged kinetic weapons, such as pistols, miniguns, and shotguns.</p>`,
+    cost: 1,
+  },
+  {
+    id: 5,
+    name: 'Energy Weapons',
+    abbr: 'ENE',
+    desc: `<p>Increases damage of long ranged energy weapons, such as blasters and laser rifles.</p>`,
+    cost: 1,
+  },
+  {
+    id: 9,
+    name: 'Leadership',
+    abbr: 'LEA',
+    desc: `<p>Increases the strength of party buffs and auras.</p>`,
+    cost: 1,
   },
   {
     id: 7,
@@ -79,7 +72,7 @@ export const STATS = [
         Allows usage of simple, elemental-based gadgets such as moltov coctails or
         shock grenades. Requires energy.
       </p>`,
-    cost: 5,
+    cost: 3,
   },
   {
     id: 8,
@@ -89,14 +82,7 @@ export const STATS = [
         Allows usage of extremely powerful, but demanding gadgets such as
         doomsday devices or death rays. Requires energy.
       </p>`,
-    cost: 10,
-  },
-  {
-    id: 9,
-    name: 'Leadership',
-    abbr: 'LEA',
-    desc: `<p>Increases the strength of party buffs and auras.</p>`,
-    cost: 1,
+    cost: 6,
   },
 ];
 

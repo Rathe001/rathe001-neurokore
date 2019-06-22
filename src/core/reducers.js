@@ -6,6 +6,7 @@ import tooltip from 'core/tooltip/reducers';
 import characterCreation from 'core/characterCreation/reducers';
 import party from 'core/party/reducers';
 import characterSheet from 'core/characterSheet/reducers';
+import menu from 'core/menu/reducers';
 
 export default combineReducers({
   ui,
@@ -15,4 +16,5 @@ export default combineReducers({
   characterCreation,
   party,
   characterSheet,
+  menu,
 });

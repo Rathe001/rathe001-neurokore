@@ -10,6 +10,9 @@ const initialState = {
   ui: {
     scale: 0,
   },
+  menu: {
+    show: false,
+  },
   splash: {
     show: true,
   },

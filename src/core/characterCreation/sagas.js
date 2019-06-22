@@ -8,8 +8,9 @@ function* addCharacter(action) {
   const stats = {
     ...action.payload,
     id: uuidv4(),
+    level: 1,
     name: action.payload.name.charAt(0).toUpperCase() + action.payload.name.slice(1),
-    HP_MAX: parseInt((50 + action.payload.STR * 3) / 2, 10),
+    HP_MAX: parseInt(50 + action.payload.STR * 4, 10),
     ENERGY_MAX: parseInt(action.payload.INT * 3, 10),
     buffs: [],
     debuffs: [],

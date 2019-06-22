@@ -5,6 +5,7 @@ import withStyles from 'react-jss';
 import { JSS_RESET, JSS_GLOBAL } from 'constants/styles';
 import { VARIABLES } from 'constants/config';
 import uiActions from 'core/ui/actions';
+import bodyBackground from 'assets/img/body-bg.jpg';
 
 import Ui from 'components/Ui';
 import Splash from 'components/Splash';
@@ -13,6 +14,10 @@ const styles = {
   '@global': {
     ...JSS_RESET,
     ...JSS_GLOBAL,
+    body: {
+      background: `url(${bodyBackground}) 0 0 no-repeat`,
+      backgroundSize: '100%',
+    },
   },
   app: {
     fontSize: `${VARIABLES.ui.width * 0.1}px`,
@@ -24,6 +29,8 @@ const styles = {
     height: VARIABLES.ui.height,
     margin: [-(VARIABLES.ui.height / 2), 0, 0, -(VARIABLES.ui.width / 2)],
     overflow: 'hidden',
+    boxShadow: '0 0 30px #000',
+    outline: '2px solid rgba(0, 0, 0, 0.3)',
   },
 };
 

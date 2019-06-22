@@ -34,23 +34,24 @@ const styles = {
     textAlign: 'center',
   },
   stats: {
+    position: 'relative',
     borderTop: '1px solid rgba(0, 0, 0, 0.2)',
     marginTop: 5,
     borderRadius: 3,
     padding: '3px',
-    background: 'rgba(255, 255, 255, 0.2)',
+    background: 'rgba(255, 255, 255, 0.3)',
   },
   sp: {
     position: 'absolute',
-    bottom: 5,
-    left: 5,
+    top: 17,
+    right: 5,
   },
   button: {
     border: 'none',
     cursor: 'pointer',
     margin: '0 0 1px 0',
     lineHeight: '6px',
-    padding: '2px 2px 0 2px',
+    padding: '1px 4px 0 4px',
     background: '#031627',
     color: '#7da4f4',
     borderRadius: 2,
@@ -60,11 +61,17 @@ const styles = {
     color: '#fff',
   },
   add: {
+    right: 45,
+    bottom: 2,
+    background: 'rgba(255, 255, 255, 0.9)',
+    padding: '3px 6px',
+    borderRadius: 3,
+    cursor: 'pointer',
+    border: '1px solid black',
     position: 'absolute',
-    right: 5,
-    bottom: 5,
-    padding: 1,
-    border: 'none',
+    '&:active, &:focus': {
+      background: '#fff',
+    },
   },
   current: {
     width: 12,
@@ -73,6 +80,21 @@ const styles = {
   },
   name: {
     padding: '0 0 0 5px',
+  },
+  charName: {
+    width: 70,
+    margin: '0 0 0 3px',
+    border: '1px solid rgba(0, 0, 0, 0.4)',
+  },
+  hr: {
+    border: 'none',
+    height: 2,
+    borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
+    background: 'rgba(0, 0, 0, 0.4)',
+    widh: '100%',
+  },
+  textLighter: {
+    opacity: 0.3,
   },
 };
 
@@ -115,66 +137,73 @@ const CharacterCreation = ({
           [classes.hidden]: !showCharacterCreation || creationComplete,
         })}
       >
-        <h1 className={classes.title}>Add a new character</h1>
-        <span className={classes.sp}>SP: {remaining}</span>
-        <label htmlFor="charName">
-          Name:
-          <input
-            id="charName"
-            name="charName"
-            type="text"
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck="false"
-            onChange={e => setAttr('name', e.target.value)}
-            value={stats.name}
-          />
-        </label>
         <div className={classes.stats}>
+          <h1 className={classes.title}>
+            <span className={classes.textLighter}>-=[</span> Add a new character{' '}
+            <span className={classes.textLighter}>]=-</span>
+          </h1>
+          <br />
+          <span className={classes.sp}>SP: {remaining}</span>
+          <label htmlFor="charName">
+            Name:
+            <input
+              className={classes.charName}
+              id="charName"
+              name="charName"
+              type="text"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
+              onChange={e => setAttr('name', e.target.value)}
+              value={stats.name}
+            />
+          </label>
+          <br />
+          <hr className={classes.hr} />
           {STATS.map(stat => (
-            <div
-              key={stat.id}
-              onMouseOver={() => setText(stat.desc)}
-              onFocus={() => setText(stat.desc)}
-              onBlur={() => setText('')}
-              onMouseLeave={() => setText('')}
-            >
-              <button
-                className={classnames(classes.button, {
-                  [classes.disabled]: stats[stat.abbr] === 0,
-                })}
-                type="button"
-                onClick={() => subtractAttr(stat)}
-                disabled={stats[stat.abbr] === 0}
+            <>
+              <div
+                key={stat.id}
+                onMouseOver={() => setText(stat.desc)}
+                onFocus={() => setText(stat.desc)}
+                onBlur={() => setText('')}
+                onMouseLeave={() => setText('')}
               >
-                -
-              </button>
-              <span className={classes.current}>{stats[stat.abbr]}</span>
-              <button
-                className={classnames(classes.button, {
-                  [classes.disabled]: remaining === 0,
-                })}
-                type="button"
-                onClick={() => addAttr(stat)}
-                disabled={remaining === 0}
-              >
-                +
-              </button>
-              <span className={classes.name}>
-                {stat.name} ({stat.cost})
-              </span>
-            </div>
+                <button
+                  className={classnames(classes.button, {
+                    [classes.disabled]: stats[stat.abbr] === 0,
+                  })}
+                  type="button"
+                  onClick={() => subtractAttr(stat)}
+                  disabled={stats[stat.abbr] === 0}
+                >
+                  -
+                </button>
+                <span className={classes.current}>{stats[stat.abbr]}</span>
+                <button
+                  className={classnames(classes.button, {
+                    [classes.disabled]: remaining === 0,
+                  })}
+                  type="button"
+                  onClick={() => addAttr(stat)}
+                  disabled={remaining === 0}
+                >
+                  +
+                </button>
+                <span className={classes.name}>
+                  {stat.name} ({stat.cost})
+                </span>
+              </div>
+              {stat.abbr === 'INT' && <hr className={classes.hr} />}
+            </>
           ))}
         </div>
-        <button
-          type="button"
-          className={classes.add}
-          disabled={remaining > 0 || stats.name === ''}
-          onClick={() => addCharacter(stats)}
-        >
-          Add Character
-        </button>
+        {remaining === 0 && !!stats.name && (
+          <button type="button" className={classes.add} onClick={() => addCharacter(stats)}>
+            Add Character
+          </button>
+        )}
       </div>
     </div>
   );
