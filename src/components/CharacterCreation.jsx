@@ -19,13 +19,13 @@ const styles = {
     left: 10,
     width: 145,
     height: 145,
-    transition: '1s all',
     transitionTimingFunction: `steps(${VARIABLES.ui.fps})`,
   },
   hidden: {
     display: 'none',
   },
   complete: {
+    animation: `openDoor 2s steps(${VARIABLES.ui.fps})`,
     padding: 0,
     overflow: 'hidden',
     height: 0,
@@ -96,45 +96,47 @@ const styles = {
   textLighter: {
     opacity: 0.3,
   },
+  '@keyframes openDoor': {
+    '0%': { height: 145 },
+    '100%': { height: 0 },
+  },
 };
 
 const CharacterCreation = ({
   classes,
-  setText,
-  setAttr,
-  addCharacter,
-  stats,
-  remaining,
-  showCharacterCreation,
-  creationComplete,
+  dispatchTooltipSetText,
+  dispatchCharacterCreationSetAttr,
+  dispatchCharacterCreationAddCharacter,
+  stateCharacterCreation,
+  statePartyCreationComplete,
 }) => {
   const subtractAttr = stat => {
-    if (stats[stat.abbr] > 0) {
-      setAttr(stat.abbr, stats[stat.abbr] - 1);
-      setAttr('remaining', remaining + stat.cost);
+    if (stateCharacterCreation[stat.abbr] > 0) {
+      dispatchCharacterCreationSetAttr(stat.abbr, stateCharacterCreation[stat.abbr] - 1);
+      dispatchCharacterCreationSetAttr('remaining', stateCharacterCreation.remaining + stat.cost);
     }
   };
 
   const addAttr = stat => {
-    if (remaining - stat.cost >= 0) {
-      setAttr(stat.abbr, stats[stat.abbr] + 1);
-      setAttr('remaining', remaining - stat.cost);
+    if (stateCharacterCreation.remaining - stat.cost >= 0) {
+      dispatchCharacterCreationSetAttr(stat.abbr, stateCharacterCreation[stat.abbr] + 1);
+      dispatchCharacterCreationSetAttr('remaining', stateCharacterCreation.remaining - stat.cost);
     }
   };
 
   useEffect(() => {
-    console.log(`Complete: ${creationComplete}`);
-  }, [creationComplete]);
+    console.log(`Complete: ${statePartyCreationComplete}`);
+  }, [statePartyCreationComplete]);
 
   return (
     <div
       className={classnames(classes.characterCreation, {
-        [classes.complete]: creationComplete,
+        [classes.complete]: statePartyCreationComplete,
       })}
     >
       <div
         className={classnames({
-          [classes.hidden]: !showCharacterCreation || creationComplete,
+          [classes.hidden]: !stateCharacterCreation.show || statePartyCreationComplete,
         })}
       >
         <div className={classes.stats}>
@@ -143,7 +145,7 @@ const CharacterCreation = ({
             <span className={classes.textLighter}>]=-</span>
           </h1>
           <br />
-          <span className={classes.sp}>SP: {remaining}</span>
+          <span className={classes.sp}>SP: {stateCharacterCreation.remaining}</span>
           <label htmlFor="charName">
             Name:
             <input
@@ -155,52 +157,50 @@ const CharacterCreation = ({
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
-              onChange={e => setAttr('name', e.target.value)}
-              value={stats.name}
+              onChange={e => dispatchCharacterCreationSetAttr('name', e.target.value)}
+              value={stateCharacterCreation.name}
             />
           </label>
           <br />
           <hr className={classes.hr} />
           {STATS.map(stat => (
-            <>
-              <div
-                key={stat.id}
-                onMouseOver={() => setText(stat.desc)}
-                onFocus={() => setText(stat.desc)}
-                onBlur={() => setText('')}
-                onMouseLeave={() => setText('')}
+            <div
+              key={stat.id}
+              onMouseOver={() => dispatchTooltipSetText(stat.desc)}
+              onFocus={() => dispatchTooltipSetText(stat.desc)}
+              onBlur={() => dispatchTooltipSetText('')}
+              onMouseLeave={() => dispatchTooltipSetText('')}
+            >
+              <button
+                className={classes.button}
+                type="button"
+                onClick={() => subtractAttr(stat)}
+                disabled={stateCharacterCreation[stat.abbr] === 0}
               >
-                <button
-                  className={classnames(classes.button, {
-                    [classes.disabled]: stats[stat.abbr] === 0,
-                  })}
-                  type="button"
-                  onClick={() => subtractAttr(stat)}
-                  disabled={stats[stat.abbr] === 0}
-                >
-                  -
-                </button>
-                <span className={classes.current}>{stats[stat.abbr]}</span>
-                <button
-                  className={classnames(classes.button, {
-                    [classes.disabled]: remaining === 0,
-                  })}
-                  type="button"
-                  onClick={() => addAttr(stat)}
-                  disabled={remaining === 0}
-                >
-                  +
-                </button>
-                <span className={classes.name}>
-                  {stat.name} ({stat.cost})
-                </span>
-              </div>
+                -
+              </button>
+              <span className={classes.current}>{stateCharacterCreation[stat.abbr]}</span>
+              <button
+                className={classes.button}
+                type="button"
+                onClick={() => addAttr(stat)}
+                disabled={stateCharacterCreation.remaining === 0}
+              >
+                +
+              </button>
+              <span className={classes.name}>
+                {stat.name} ({stat.cost})
+              </span>
               {stat.abbr === 'INT' && <hr className={classes.hr} />}
-            </>
+            </div>
           ))}
         </div>
-        {remaining === 0 && !!stats.name && (
-          <button type="button" className={classes.add} onClick={() => addCharacter(stats)}>
+        {stateCharacterCreation.remaining === 0 && !!stateCharacterCreation.name && (
+          <button
+            type="button"
+            className={classes.add}
+            onClick={() => dispatchCharacterCreationAddCharacter(stateCharacterCreation)}
+          >
             Add Character
           </button>
         )}
@@ -211,25 +211,21 @@ const CharacterCreation = ({
 
 CharacterCreation.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  setText: PropTypes.func.isRequired,
-  setAttr: PropTypes.func.isRequired,
-  addCharacter: PropTypes.func.isRequired,
-  remaining: PropTypes.number.isRequired,
-  stats: PropTypes.shape({}).isRequired,
-  showCharacterCreation: PropTypes.bool.isRequired,
-  creationComplete: PropTypes.bool.isRequired,
+  dispatchTooltipSetText: PropTypes.func.isRequired,
+  dispatchCharacterCreationSetAttr: PropTypes.func.isRequired,
+  dispatchCharacterCreationAddCharacter: PropTypes.func.isRequired,
+  stateCharacterCreation: PropTypes.shape({}).isRequired,
+  statePartyCreationComplete: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ characterCreation, party }) => ({
-  remaining: characterCreation.remaining,
-  stats: characterCreation,
-  showCharacterCreation: characterCreation.show,
-  creationComplete: party.creationComplete,
+  stateCharacterCreation: characterCreation,
+  statePartyCreationComplete: party.creationComplete,
 });
 const mapDispatchToProps = {
-  setText: tooltipActions.setText,
-  setAttr: characterCreationActions.setAttr,
-  addCharacter: characterCreationActions.addCharacter,
+  dispatchTooltipSetText: tooltipActions.setText,
+  dispatchCharacterCreationSetAttr: characterCreationActions.setAttr,
+  dispatchCharacterCreationAddCharacter: characterCreationActions.addCharacter,
 };
 
 const StyledCharacterCreation = withStyles(styles)(CharacterCreation);

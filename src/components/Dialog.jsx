@@ -19,26 +19,26 @@ const styles = {
   },
 };
 
-const Dialog = ({ classes, showDialog, text }) => {
+const Dialog = ({ classes, stateDialogShow, stateDialogText }) => {
   return (
     <div
       className={classnames(classes.dialog, {
-        [classes.hidden]: !showDialog,
+        [classes.hidden]: !stateDialogShow,
       })}
-      dangerouslySetInnerHTML={{ __html: text }}
+      dangerouslySetInnerHTML={{ __html: stateDialogText }}
     />
   );
 };
 
 Dialog.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  showDialog: PropTypes.bool.isRequired,
-  text: PropTypes.node.isRequired,
+  stateDialogShow: PropTypes.bool.isRequired,
+  stateDialogText: PropTypes.node.isRequired,
 };
 
 const mapStateToProps = ({ dialog }) => ({
-  showDialog: dialog.show,
-  text: dialog.text,
+  stateDialogShow: dialog.show,
+  stateDialogText: dialog.text,
 });
 
 const mapDispatchToProps = {};

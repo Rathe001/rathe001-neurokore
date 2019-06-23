@@ -35,26 +35,26 @@ const styles = {
   },
 };
 
-const Tooltip = ({ classes, showTooltip, text }) => {
+const Tooltip = ({ classes, stateTooltipShow, stateTooltipText }) => {
   return (
     <div
       className={classnames(classes.tooltip, {
-        [classes.hidden]: !showTooltip,
+        [classes.hidden]: !stateTooltipShow,
       })}
-      dangerouslySetInnerHTML={{ __html: text }}
+      dangerouslySetInnerHTML={{ __html: stateTooltipText }}
     />
   );
 };
 
 Tooltip.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  showTooltip: PropTypes.bool.isRequired,
-  text: PropTypes.node.isRequired,
+  stateTooltipShow: PropTypes.bool.isRequired,
+  stateTooltipText: PropTypes.node.isRequired,
 };
 
 const mapStateToProps = ({ tooltip }) => ({
-  showTooltip: tooltip.show,
-  text: tooltip.text,
+  stateTooltipShow: tooltip.show,
+  stateTooltipText: tooltip.text,
 });
 
 const mapDispatchToProps = {};

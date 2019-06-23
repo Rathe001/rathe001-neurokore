@@ -55,49 +55,59 @@ const styles = {
   },
 };
 
-const CharacterSheet = ({ classes, character, toggleCharacterSheet, showCharacterSheet }) => {
+const CharacterSheet = ({
+  classes,
+  stateCharacterSheetCharacter,
+  dispatchCharacterSheetToggle,
+  stateCharacterSheetShow,
+}) => {
   return (
     <div
       className={classnames(classes.characterSheet, {
-        [classes.hidden]: !showCharacterSheet,
+        [classes.hidden]: !stateCharacterSheetShow,
       })}
     >
       <div className={classes.level}>
         <div className={classes.col}>
-          <div className={classes.name}>{character.name}</div>
-          Level: {character.level} SP: {character.remaining}
+          <div className={classes.name}>{stateCharacterSheetCharacter.name}</div>
+          Level: {stateCharacterSheetCharacter.level} SP: {stateCharacterSheetCharacter.remaining}
         </div>
         <div className={classes.col}>
-          Health: {character.HP_CUR} of {character.HP_MAX}
+          Health: {stateCharacterSheetCharacter.HP_CUR} of {stateCharacterSheetCharacter.HP_MAX}
           <br />
-          Energy: {character.ENERGY_CUR} of {character.ENERGY_MAX}
+          Energy: {stateCharacterSheetCharacter.ENERGY_CUR} of{' '}
+          {stateCharacterSheetCharacter.ENERGY_MAX}
         </div>
       </div>
       <hr className={classes.hr} />
       <div className={classes.stats}>
         <div className={classes.col}>
-          STR: {character.STR}
+          STR: {stateCharacterSheetCharacter.STR}
           <br />
-          DEX: {character.DEX}
+          DEX: {stateCharacterSheetCharacter.DEX}
           <br />
-          INT: {character.INT}
+          INT: {stateCharacterSheetCharacter.INT}
         </div>
         <div className={classes.col}>
-          MAR: {character.MAR}
+          MAR: {stateCharacterSheetCharacter.MAR}
           <br />
-          ENE: {character.ENE}
+          ENE: {stateCharacterSheetCharacter.ENE}
           <br />
-          KIN: {character.KIN}
+          KIN: {stateCharacterSheetCharacter.KIN}
         </div>
         <div className={classes.col}>
-          LEA: {character.LEA}
+          LEA: {stateCharacterSheetCharacter.LEA}
           <br />
-          LOT: {character.LOT}
+          LOT: {stateCharacterSheetCharacter.LOT}
           <br />
-          HIT: {character.HIT}
+          HIT: {stateCharacterSheetCharacter.HIT}
         </div>
       </div>
-      <button className={classes.btnClose} type="button" onClick={() => toggleCharacterSheet({})}>
+      <button
+        className={classes.btnClose}
+        type="button"
+        onClick={() => dispatchCharacterSheetToggle({})}
+      >
         X
       </button>
     </div>
@@ -106,18 +116,18 @@ const CharacterSheet = ({ classes, character, toggleCharacterSheet, showCharacte
 
 CharacterSheet.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  character: PropTypes.shape({}).isRequired,
-  toggleCharacterSheet: PropTypes.func.isRequired,
-  showCharacterSheet: PropTypes.bool.isRequired,
+  stateCharacterSheetCharacter: PropTypes.shape({}).isRequired,
+  stateCharacterSheetShow: PropTypes.bool.isRequired,
+  dispatchCharacterSheetToggle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ characterSheet }) => ({
-  character: characterSheet.character,
-  showCharacterSheet: characterSheet.show,
+  stateCharacterSheetCharacter: characterSheet.character,
+  stateCharacterSheetShow: characterSheet.show,
 });
 
 const mapDispatchToProps = {
-  toggleCharacterSheet: characterSheetActions.toggle,
+  dispatchCharacterSheetToggle: characterSheetActions.toggle,
 };
 
 const StyledCharacterSheet = withStyles(styles)(CharacterSheet);

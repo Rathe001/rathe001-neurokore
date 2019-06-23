@@ -40,16 +40,16 @@ const getScaleRatio = () => {
     : window.innerHeight / VARIABLES.ui.height;
 };
 
-const BareApp = ({ classes, setScale, scale }) => {
+const BareApp = ({ classes, dispatchUiSetScale, stateUiScale }) => {
   useEffect(() => {
-    window.addEventListener('resize', () => setScale(getScaleRatio()));
-  }, [scale]);
+    window.addEventListener('resize', () => dispatchUiSetScale(getScaleRatio()));
+  }, [stateUiScale]);
 
   return (
     <div
       className={classes.app}
       style={{
-        zoom: `${!scale ? getScaleRatio() : scale}`,
+        zoom: `${!stateUiScale ? getScaleRatio() : stateUiScale}`,
       }}
     >
       <Splash />
@@ -60,20 +60,20 @@ const BareApp = ({ classes, setScale, scale }) => {
 
 BareApp.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  setScale: PropTypes.func.isRequired,
-  scale: PropTypes.number,
+  stateUiScale: PropTypes.number,
+  dispatchUiSetScale: PropTypes.func.isRequired,
 };
 
 BareApp.defaultProps = {
-  scale: getScaleRatio(),
+  stateUiScale: getScaleRatio(),
 };
 
 const mapStateToProps = ({ ui }) => ({
-  scale: ui.scale,
+  stateUiScale: ui.scale,
 });
 
 const mapDispatchToProps = {
-  setScale: uiActions.setScale,
+  dispatchUiSetScale: uiActions.setScale,
 };
 
 const StyledApp = withStyles(styles)(BareApp);

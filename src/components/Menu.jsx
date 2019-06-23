@@ -27,11 +27,14 @@ const styles = {
     textAlign: 'center',
   },
   menuItem: {
-    background: 'rgba(255, 255, 255, 0.9)',
+    background: '#031627',
+    color: '#7da4f4',
+    border: '1px solid #7da4f4',
     padding: '5px 10px 3px 10px',
     margin: '0 0 3px',
     fontSize: 8,
     borderRadius: 3,
+    width: '100%',
   },
   hidden: {
     opacity: 0,
@@ -54,23 +57,42 @@ const styles = {
   },
 };
 
-const Menu = ({ classes, toggleMenu, showMenu }) => {
+const Menu = ({
+  classes,
+  dispatchShowMenu,
+  dispatchHideMenu,
+  stateMenuShow,
+  dispatchSaveGame,
+  dispatchLoadGame,
+}) => {
   return (
     <>
-      <div onClick={toggleMenu} className={classes.menuButton} />
+      <div onClick={dispatchShowMenu} className={classes.menuButton} />
       <div
-        onClick={toggleMenu}
         className={classnames(classes.menu, {
-          [classes.hidden]: !showMenu,
+          [classes.hidden]: !stateMenuShow,
         })}
       >
-        <ul className={classes.menuList}>
-          <li className={classes.menuItem}>Save Game</li>
-          <li className={classes.menuItem}>Load Game</li>
-          <li className={classes.menuItem}>Disable Sound</li>
-          <li className={classes.menuItem}>Disable Music</li>
-          <li className={classes.menuItem}>Disable Help</li>
-        </ul>
+        <div className={classes.menuList}>
+          <button type="button" className={classes.menuItem} onClick={dispatchSaveGame}>
+            Save Game
+          </button>
+          <button type="button" className={classes.menuItem} onClick={dispatchLoadGame}>
+            Load Game
+          </button>
+          <button disabled type="button" className={classes.menuItem}>
+            Disable Sound
+          </button>
+          <button disabled type="button" className={classes.menuItem}>
+            Disable Music
+          </button>
+          <button disabled type="button" className={classes.menuItem}>
+            Disable Help
+          </button>
+          <button type="button" className={classes.menuItem} onClick={dispatchHideMenu}>
+            Resume Game
+          </button>
+        </div>
       </div>
     </>
   );
@@ -78,16 +100,22 @@ const Menu = ({ classes, toggleMenu, showMenu }) => {
 
 Menu.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  toggleMenu: PropTypes.func.isRequired,
-  showMenu: PropTypes.bool.isRequired,
+  stateMenuShow: PropTypes.bool.isRequired,
+  dispatchShowMenu: PropTypes.func.isRequired,
+  dispatchHideMenu: PropTypes.func.isRequired,
+  dispatchSaveGame: PropTypes.func.isRequired,
+  dispatchLoadGame: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ menu }) => ({
-  showMenu: menu.show,
+  stateMenuShow: menu.show,
 });
 
 const mapDispatchToProps = {
-  toggleMenu: menuActions.toggle,
+  dispatchShowMenu: menuActions.show,
+  dispatchHideMenu: menuActions.hide,
+  dispatchSaveGame: menuActions.saveGame,
+  dispatchLoadGame: menuActions.loadGame,
 };
 
 const StyledMenu = withStyles(styles)(Menu);

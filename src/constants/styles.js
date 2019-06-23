@@ -58,7 +58,11 @@ export const JSS_GLOBAL = {
   },
   'button:focus': {
     outline: 'none',
-    background: 'rgba(0, 0, 0, 0.8)',
+    background: 'black',
+    color: 'white',
+  },
+  'button:disabled': {
+    opacity: 0.3,
   },
   '@font-face': {
     fontFamily: 'ManaspaceReg',

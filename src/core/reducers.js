@@ -7,8 +7,9 @@ import characterCreation from 'core/characterCreation/reducers';
 import party from 'core/party/reducers';
 import characterSheet from 'core/characterSheet/reducers';
 import menu from 'core/menu/reducers';
+import actions from './actions';
 
-export default combineReducers({
+const appReducer = combineReducers({
   ui,
   splash,
   dialog,
@@ -18,3 +19,12 @@ export default combineReducers({
   characterSheet,
   menu,
 });
+
+export default (state, action) => {
+  if (action.type === actions.SET_STATE_FROM_DATA) {
+    // eslint-disable-next-line
+    state = action.payload;
+  }
+
+  return appReducer(state, action);
+};

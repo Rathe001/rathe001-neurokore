@@ -10,30 +10,30 @@ import partyActions from 'core/party/actions';
 const styles = {
   party: {
     position: 'absolute',
-    top: 28,
-    right: 4,
-    width: 108,
+    top: '4.7em',
+    right: '0.5em',
+    width: 110,
     height: 121,
     fontSize: 6,
   },
 };
 
-const Party = ({ classes, party, setCharacters }) => {
+const Party = ({ classes, stateParty, dispatchPartySetCharacters }) => {
   const move = useCallback(
     (dragIndex, hoverIndex) => {
-      const character = party.characters[dragIndex];
-      setCharacters(
-        update(party.characters, {
+      const character = stateParty.characters[dragIndex];
+      dispatchPartySetCharacters(
+        update(stateParty.characters, {
           $splice: [[dragIndex, 1], [hoverIndex, 0, character]],
         }),
       );
     },
-    [party],
+    [stateParty],
   );
 
   return (
     <ol className={classnames(classes.party)}>
-      {party.characters.map((member, i) => (
+      {stateParty.characters.map((member, i) => (
         <Character key={member.id} id={member.id} data={member} move={move} index={i} />
       ))}
     </ol>
@@ -42,16 +42,16 @@ const Party = ({ classes, party, setCharacters }) => {
 
 Party.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  party: PropTypes.shape({}).isRequired,
-  setCharacters: PropTypes.func.isRequired,
+  stateParty: PropTypes.shape({}).isRequired,
+  dispatchPartySetCharacters: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ party }) => ({
-  party,
+  stateParty: party,
 });
 
 const mapDispatchToProps = {
-  setCharacters: partyActions.setCharacters,
+  dispatchPartySetCharacters: partyActions.setCharacters,
 };
 
 const StyledParty = withStyles(styles)(Party);

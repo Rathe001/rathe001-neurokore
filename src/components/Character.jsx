@@ -74,12 +74,11 @@ const styles = {
 const Character = ({
   classes,
   data,
-  setTooltipText,
-  showCharacterSheet,
+  dispatchTooltipSetText,
+  dispatchCharacterSheetShow,
   move,
   index,
   id,
-  // scaleRatio,
 }) => {
   const ref = useRef(null);
   const [, drop] = useDrop({
@@ -90,35 +89,23 @@ const Character = ({
       }
       const dragIndex = item.index;
       const hoverIndex = index;
-      // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
         return;
       }
-      // Determine rectangle on screen
       const hoverBoundingRect = ref.current.getBoundingClientRect();
-      // Get vertical middle
       const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
-      // Determine mouse position
       const clientOffset = monitor.getClientOffset();
-      // Get pixels to the top
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-      // Only perform the move when the mouse has crossed half of the items height
-      // When dragging downwards, only move when the cursor is below 50%
-      // When dragging upwards, only move when the cursor is above 50%
-      // Dragging downwards
+
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
         return;
       }
-      // Dragging upwards
+
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return;
       }
-      // Time to actually perform the action
+
       move(dragIndex, hoverIndex);
-      // Note: we're mutating the monitor item here!
-      // Generally it's better to avoid mutations,
-      // but it's good here for the sake of performance
-      // to avoid expensive index searches.
       // eslint-disable-next-line
       item.index = hoverIndex;
     },
@@ -137,13 +124,13 @@ const Character = ({
       className={classes.character}
       ref={ref}
       style={{ opacity }}
-      onClick={() => showCharacterSheet(data)}
+      onClick={() => dispatchCharacterSheetShow(data)}
     >
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
-        onMouseEnter={() => setTooltipText(`Hit Points: ${data.HP_CUR} of ${data.HP_MAX}`)}
-        onMouseLeave={() => setTooltipText('')}
+        onMouseEnter={() => dispatchTooltipSetText(`Hit Points: ${data.HP_CUR} of ${data.HP_MAX}`)}
+        onMouseLeave={() => dispatchTooltipSetText('')}
       >
         {data.HP_CUR}
         <div className={classes.barBg}>
@@ -153,8 +140,10 @@ const Character = ({
       {data.ENERGY_MAX > 0 && (
         <span
           className={classes.resources}
-          onMouseEnter={() => setTooltipText(`Energy: ${data.ENERGY_CUR} of ${data.ENERGY_MAX}`)}
-          onMouseLeave={() => setTooltipText('')}
+          onMouseEnter={() =>
+            dispatchTooltipSetText(`Energy: ${data.ENERGY_CUR} of ${data.ENERGY_MAX}`)
+          }
+          onMouseLeave={() => dispatchTooltipSetText('')}
         >
           {data.ENERGY_CUR}
         </span>
@@ -166,20 +155,18 @@ const Character = ({
 Character.propTypes = {
   classes: PropTypes.shape({}).isRequired,
   data: PropTypes.shape({}).isRequired,
-  setTooltipText: PropTypes.func.isRequired,
-  showCharacterSheet: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   move: PropTypes.func.isRequired,
+  dispatchTooltipSetText: PropTypes.func.isRequired,
+  dispatchCharacterSheetShow: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ ui }) => ({
-  scaleRatio: ui.scale,
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
-  setTooltipText: tooltipActions.setText,
-  showCharacterSheet: characterSheetActions.show,
+  dispatchTooltipSetText: tooltipActions.setText,
+  dispatchCharacterSheetShow: characterSheetActions.show,
 };
 
 const StyledCharacter = withStyles(styles)(Character);

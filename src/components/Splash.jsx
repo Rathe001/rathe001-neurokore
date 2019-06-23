@@ -52,12 +52,12 @@ const styles = {
   },
 };
 
-const Splash = ({ classes, toggleSplash, showSplash }) => {
+const Splash = ({ classes, dispatchSplashToggle, stateSplashShow }) => {
   return (
     <div
-      onClick={toggleSplash}
+      onClick={dispatchSplashToggle}
       className={classnames(classes.splash, {
-        [classes.hidden]: !showSplash,
+        [classes.hidden]: !stateSplashShow,
       })}
     >
       <img src={logo} className={classes.logo} alt="New Game+" />
@@ -68,16 +68,16 @@ const Splash = ({ classes, toggleSplash, showSplash }) => {
 
 Splash.propTypes = {
   classes: PropTypes.shape({}).isRequired,
-  toggleSplash: PropTypes.func.isRequired,
-  showSplash: PropTypes.bool.isRequired,
+  stateSplashShow: PropTypes.bool.isRequired,
+  dispatchSplashToggle: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ splash }) => ({
-  showSplash: splash.show,
+  stateSplashShow: splash.show,
 });
 
 const mapDispatchToProps = {
-  toggleSplash: splashActions.toggle,
+  dispatchSplashToggle: splashActions.toggle,
 };
 
 const StyledSplash = withStyles(styles)(Splash);
