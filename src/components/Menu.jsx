@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withStyles from 'react-jss';
@@ -55,6 +55,19 @@ const styles = {
       backgroundPosition: '-38px 0',
     },
   },
+  saveNameInput: {
+    background: '#000',
+    color: '#fff',
+    border: '1px solid #7da4f4',
+    padding: '5px 10px 3px 10px',
+    margin: '0 0 3px',
+    fontSize: 8,
+    borderRadius: 3,
+    width: '100%',
+    '&:focus': {
+      background: 'black',
+    },
+  },
 };
 
 const Menu = ({
@@ -65,34 +78,135 @@ const Menu = ({
   dispatchSaveGame,
   dispatchLoadGame,
 }) => {
+  const [showLoadMenu, setShowLoadMenu] = useState(false);
+  const [showSaveMenu, setShowSaveMenu] = useState(false);
+  const [showSaveName, setShowSaveName] = useState(false);
+  const [saveIndex, setSaveIndex] = useState(null);
+
+  const savedGames = (JSON.parse(localStorage.getItem('savedGames')) || [])
+    .concat([{}, {}, {}, {}, {}])
+    .slice(0, 5);
+
+  const handleSaveGame = () => {
+    setShowSaveMenu(true);
+    // dispatchSaveGame();
+  };
+
+  const handleLoadGame = () => {
+    setShowLoadMenu(true);
+    // dispatchLoadGame();
+  };
+
+  const handleBack = () => {
+    setShowLoadMenu(false);
+    setShowSaveMenu(false);
+    setShowSaveName(false);
+  };
+
+  const chooseFile = i => {
+    handleBack();
+    setSaveIndex(i);
+    setShowSaveName(true);
+  };
+
   return (
     <>
-      <div onClick={dispatchShowMenu} className={classes.menuButton} />
+      <div
+        onClick={() => {
+          handleBack();
+          dispatchShowMenu();
+        }}
+        className={classes.menuButton}
+      />
       <div
         className={classnames(classes.menu, {
           [classes.hidden]: !stateMenuShow,
         })}
       >
-        <div className={classes.menuList}>
-          <button type="button" className={classes.menuItem} onClick={dispatchSaveGame}>
-            Save Game
-          </button>
-          <button type="button" className={classes.menuItem} onClick={dispatchLoadGame}>
-            Load Game
-          </button>
-          <button disabled type="button" className={classes.menuItem}>
-            Disable Sound
-          </button>
-          <button disabled type="button" className={classes.menuItem}>
-            Disable Music
-          </button>
-          <button disabled type="button" className={classes.menuItem}>
-            Disable Help
-          </button>
-          <button type="button" className={classes.menuItem} onClick={dispatchHideMenu}>
-            Resume Game
-          </button>
-        </div>
+        {!showLoadMenu && !showSaveMenu && !showSaveName && (
+          <div className={classes.menuList}>
+            <button type="button" className={classes.menuItem} onClick={handleSaveGame}>
+              Save Game
+            </button>
+            <button type="button" className={classes.menuItem} onClick={handleLoadGame}>
+              Load Game
+            </button>
+            <button disabled type="button" className={classes.menuItem}>
+              Disable Sound
+            </button>
+            <button disabled type="button" className={classes.menuItem}>
+              Disable Music
+            </button>
+            <button disabled type="button" className={classes.menuItem}>
+              Disable Help
+            </button>
+            <button type="button" className={classes.menuItem} onClick={dispatchHideMenu}>
+              Resume Game
+            </button>
+          </div>
+        )}
+        {showLoadMenu && (
+          <div>
+            {savedGames
+              .filter(game => game.name)
+              .map((game, i) => (
+                <div key={i}>
+                  <button
+                    type="button"
+                    className={classes.menuItem}
+                    onClick={() => dispatchLoadGame(game.name)}
+                  >
+                    {game.name}
+                  </button>
+                </div>
+              ))}
+            <br />
+            <button type="button" onClick={handleBack} className={classes.menuItem}>
+              &lt; Back
+            </button>
+          </div>
+        )}
+        {showSaveMenu && (
+          <div>
+            SAVE GAME
+            {savedGames.map((game, i) => (
+              // eslint-disable-next-line
+              <div key={i}>
+                <button type="button" className={classes.menuItem} onClick={() => chooseFile(i)}>
+                  {game.name || '(empty)'}
+                </button>
+              </div>
+            ))}
+            <br />
+            <button type="button" onClick={handleBack} className={classes.menuItem}>
+              &lt; Back
+            </button>
+          </div>
+        )}
+        {showSaveName && (
+          <div className={classes.saveName}>
+            <input
+              className={classes.saveNameInput}
+              type="text"
+              defaultValue={savedGames[saveIndex].name}
+              onChange={e => {
+                savedGames[saveIndex].name = e.target.value;
+              }}
+            />
+            <button
+              type="button"
+              className={classes.menuItem}
+              onClick={() => dispatchSaveGame(savedGames[saveIndex].name, saveIndex)}
+            >
+              Save
+            </button>
+            <br />
+            <br />
+            <button type="button" onClick={handleBack} className={classes.menuItem}>
+              &lt; Back
+            </button>
+          </div>
+        )}
       </div>
     </>
   );

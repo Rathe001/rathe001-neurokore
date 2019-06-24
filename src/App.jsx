@@ -43,7 +43,7 @@ const getScaleRatio = () => {
 const BareApp = ({ classes, dispatchUiSetScale, stateUiScale }) => {
   useEffect(() => {
     window.addEventListener('resize', () => dispatchUiSetScale(getScaleRatio()));
-  }, [stateUiScale]);
+  }, [stateUiScale, dispatchUiSetScale]);
 
   return (
     <div

@@ -13,13 +13,18 @@ const actions = {
   },
 
   SAVE_GAME: 'MENU_SAVE_GAME',
-  saveGame: () => ({
+  saveGame: (name, index) => ({
     type: actions.SAVE_GAME,
+    payload: {
+      name,
+      index,
+    },
   }),
 
   LOAD_GAME: 'MENU_LOAD_GAME',
-  loadGame: () => ({
+  loadGame: payload => ({
     type: actions.LOAD_GAME,
+    payload,
   }),
 
   TOGGLE_SOUND: 'MENU_TOGGLE_SOUND',

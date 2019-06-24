@@ -28,7 +28,7 @@ const Party = ({ classes, stateParty, dispatchPartySetCharacters }) => {
         }),
       );
     },
-    [stateParty],
+    [stateParty, dispatchPartySetCharacters],
   );
 
   return (
