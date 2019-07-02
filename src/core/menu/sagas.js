@@ -1,5 +1,7 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, delay } from 'redux-saga/effects';
+import uuidv4 from 'uuid/v4';
 import menuActions from 'core/menu/actions';
+import dialogActions from 'core/dialog/actions';
 import coreActions from 'core/actions';
 import store from 'core/store';
 
@@ -7,10 +9,15 @@ function* saveGame({ payload }) {
   try {
     const data = JSON.parse(localStorage.getItem('savedGames')) || [{}, {}, {}, {}, {}];
     data[payload.index].name = payload.name;
+    data[payload.index].id = uuidv4();
     data[payload.index].data = store.getState();
 
     yield localStorage.setItem('savedGames', JSON.stringify(data));
     yield put(menuActions.hide());
+    yield delay(250);
+    yield put(dialogActions.setText('Game saved successfully.'));
+    yield delay(1500);
+    yield put(dialogActions.undoSetText());
   } catch (e) {
     console.log(e);
   }
@@ -23,6 +30,10 @@ function* loadGame({ payload }) {
     );
     yield put(coreActions.setStateFromData(data));
     yield put(menuActions.hide());
+    yield delay(250);
+    yield put(dialogActions.setText('Game loaded successfully.'));
+    yield delay(1500);
+    yield put(dialogActions.undoSetText());
   } catch (e) {
     console.log(e);
   }

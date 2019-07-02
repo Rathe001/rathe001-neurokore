@@ -41,7 +41,7 @@ const CharacterCreation = () => {
         'Your cell door crackles with electricity, and then opens unexpectedly.',
       ),
     );
-  }, [statePartyCreationComplete]);
+  }, [statePartyCreationComplete, dispatch]);
 
   return (
     <div

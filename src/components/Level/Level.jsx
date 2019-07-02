@@ -7,7 +7,7 @@ const useStyles = createUseStyles(styles);
 const Level = () => {
   const classes = useStyles();
 
-  return <div className={classes.level}></div>;
+  return <div className={classes.level} />;
 };
 
 export default Level;

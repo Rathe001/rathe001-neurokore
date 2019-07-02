@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createUseStyles } from 'react-jss';
 import classnames from 'classnames';
 import menuActions from 'core/menu/actions';
-import dialogActions from 'core/dialog/actions';
 import styles from './Menu.styles';
 
 const useStyles = createUseStyles(styles);
@@ -87,15 +86,13 @@ const Menu = () => {
           <div>
             {savedGames
               .filter(game => game.name)
-              .map((game, i) => (
-                <div key={i}>
+              .map(game => (
+                <div key={game.name}>
                   <button
                     type="button"
                     className={classes.menuItem}
                     onClick={() => {
                       dispatch(menuActions.loadGame(game.name));
-                      dispatch(dialogActions.setText('Game loaded successfully.'));
-                      setTimeout(() => dispatch(dialogActions.undoSetText()), 2000);
                     }}
                   >
                     {game.name}
@@ -140,8 +137,6 @@ const Menu = () => {
               className={classes.menuItem}
               onClick={() => {
                 dispatch(menuActions.saveGame(savedGames[saveIndex].name, saveIndex));
-                dispatch(dialogActions.setText('Game saved successfully.'));
-                setTimeout(() => dispatch(dialogActions.undoSetText()), 2000);
               }}
             >
               Save
