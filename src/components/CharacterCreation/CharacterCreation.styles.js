@@ -11,6 +11,7 @@ export default {
     left: 10,
     width: 145,
     height: 145,
+    transition: '3s height',
     transitionTimingFunction: `steps(${VARIABLES.ui.fps})`,
   },
   hidden: {

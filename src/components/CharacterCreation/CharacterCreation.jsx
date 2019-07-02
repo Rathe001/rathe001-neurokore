@@ -5,6 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { STATS } from 'constants/stats';
 import tooltipActions from 'core/tooltip/actions';
 import characterCreationActions from 'core/characterCreation/actions';
+import dialogActions from 'core/dialog/actions';
 import styles from './CharacterCreation.styles';
 
 const useStyles = createUseStyles(styles);
@@ -35,7 +36,11 @@ const CharacterCreation = () => {
   };
 
   useEffect(() => {
-    console.log(`Complete: ${statePartyCreationComplete}`);
+    dispatch(
+      dialogActions.setText(
+        'Your cell door crackles with electricity, and then opens unexpectedly.',
+      ),
+    );
   }, [statePartyCreationComplete]);
 
   return (
