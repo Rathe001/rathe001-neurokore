@@ -187,21 +187,25 @@ const Level = () => {
           >
             {row.cells.map((cell, x) => (
               <div
+                className={classes.col}
                 key={cell.id}
                 style={{
                   width: `${100 / levelData[0].cells.length}%`,
                 }}
-                className={classnames(classes.col, {
-                  [classes.activeColN]:
-                    y === statePosY && x === statePosX && statePosFacing === 'n',
-                  [classes.activeColS]:
-                    y === statePosY && x === statePosX && statePosFacing === 's',
-                  [classes.activeColE]:
-                    y === statePosY && x === statePosX && statePosFacing === 'e',
-                  [classes.activeColW]:
-                    y === statePosY && x === statePosX && statePosFacing === 'w',
-                })}
-              />
+              >
+                <div
+                  className={classnames({
+                    [classes.activeColN]:
+                      y === statePosY && x === statePosX && statePosFacing === 'n',
+                    [classes.activeColS]:
+                      y === statePosY && x === statePosX && statePosFacing === 's',
+                    [classes.activeColE]:
+                      y === statePosY && x === statePosX && statePosFacing === 'e',
+                    [classes.activeColW]:
+                      y === statePosY && x === statePosX && statePosFacing === 'w',
+                  })}
+                />
+              </div>
             ))}
           </div>
         ))}

@@ -84,21 +84,29 @@ export default {
   },
 
   activeColN: {
+    height: '100%',
+    width: '100%',
     background: 'white',
     borderTop: '2px solid blue',
   },
 
   activeColS: {
+    height: '100%',
+    width: '100%',
     background: 'white',
     borderBottom: '2px solid blue',
   },
 
   activeColE: {
+    height: '100%',
+    width: '100%',
     background: 'white',
     borderRight: '2px solid blue',
   },
 
   activeColW: {
+    height: '100%',
+    width: '100%',
     background: 'white',
     borderLeft: '2px solid blue',
   },
