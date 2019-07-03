@@ -7,6 +7,7 @@ import characterCreation from 'core/characterCreation/reducers';
 import party from 'core/party/reducers';
 import characterSheet from 'core/characterSheet/reducers';
 import menu from 'core/menu/reducers';
+import level from 'core/level/reducers';
 import actions from './actions';
 
 const appReducer = combineReducers({
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
   party,
   characterSheet,
   menu,
+  level,
 });
 
 export default (state, action) => {

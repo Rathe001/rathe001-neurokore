@@ -6,7 +6,7 @@ import coreSagas from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const initialState = {
+export const initialState = {
   ui: {
     scale: 0,
   },
@@ -50,6 +50,13 @@ const initialState = {
   characterSheet: {
     show: false,
     character: {},
+  },
+  level: {
+    position: {
+      facing: 'n',
+      x: 0,
+      y: 0,
+    },
   },
 };
 

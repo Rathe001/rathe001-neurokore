@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4';
 import menuActions from 'core/menu/actions';
 import dialogActions from 'core/dialog/actions';
 import coreActions from 'core/actions';
-import store from 'core/store';
+import store, { initialState } from 'core/store';
 
 function* saveGame({ payload }) {
   try {
@@ -12,7 +12,10 @@ function* saveGame({ payload }) {
     data[payload.index].id = uuidv4();
     data[payload.index].data = store.getState();
 
-    yield localStorage.setItem('savedGames', JSON.stringify(data));
+    yield localStorage.setItem('savedGames', {
+      ...initialState,
+      ...JSON.stringify(data),
+    });
     yield put(menuActions.hide());
     yield delay(250);
     yield put(dialogActions.setText('Game saved successfully.'));
@@ -28,7 +31,12 @@ function* loadGame({ payload }) {
     const { data } = JSON.parse(localStorage.getItem('savedGames')).find(
       game => game.name === payload,
     );
-    yield put(coreActions.setStateFromData(data));
+    yield put(
+      coreActions.setStateFromData({
+        ...initialState,
+        ...data,
+      }),
+    );
     yield put(menuActions.hide());
     yield delay(250);
     yield put(dialogActions.setText('Game loaded successfully.'));

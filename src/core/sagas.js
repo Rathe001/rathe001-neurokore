@@ -7,6 +7,7 @@ import characterCreationSagas from 'core/characterCreation/sagas';
 import characterSheetSagas from 'core/characterSheet/sagas';
 import partySagas from 'core/party/sagas';
 import menuSagas from 'core/menu/sagas';
+import levelSagas from 'core/level/sagas';
 
 const combinedSagas = [
   ...uiSagas,
@@ -17,6 +18,7 @@ const combinedSagas = [
   ...characterSheetSagas,
   ...partySagas,
   ...menuSagas,
+  ...levelSagas,
 ];
 
 export default function* sagas() {
