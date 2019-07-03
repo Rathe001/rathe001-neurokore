@@ -12,6 +12,11 @@ const reducer = (state = {}, action) => {
         ...state,
         show: false,
       };
+    case actions.TOGGLE:
+      return {
+        ...state,
+        show: !state.show,
+      };
     case actions.TOGGLE_MUSIC:
       return {
         ...state,

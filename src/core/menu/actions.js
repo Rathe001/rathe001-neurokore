@@ -12,6 +12,13 @@ const actions = {
     };
   },
 
+  TOGGLE: 'MENU_TOGGLE',
+  toggle: () => {
+    return {
+      type: actions.TOGGLE,
+    };
+  },
+
   SAVE_GAME: 'MENU_SAVE_GAME',
   saveGame: (name, index) => ({
     type: actions.SAVE_GAME,

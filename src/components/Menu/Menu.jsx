@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createUseStyles } from 'react-jss';
 import classnames from 'classnames';
+import { useKeyPress } from 'hooks/keyboard';
 import menuActions from 'core/menu/actions';
 import styles from './Menu.styles';
 
@@ -12,6 +13,10 @@ const Menu = () => {
   const dispatch = useDispatch();
 
   const stateMenuShow = useSelector(state => state.menu.show);
+
+  useKeyPress('Escape', () => {
+    dispatch(menuActions.toggle());
+  });
 
   const [showLoadMenu, setShowLoadMenu] = useState(false);
   const [showSaveMenu, setShowSaveMenu] = useState(false);
