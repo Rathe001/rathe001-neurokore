@@ -14,10 +14,6 @@ const Menu = () => {
 
   const stateMenuShow = useSelector(state => state.menu.show);
 
-  useKeyPress('Escape', () => {
-    dispatch(menuActions.toggle());
-  });
-
   const [showLoadMenu, setShowLoadMenu] = useState(false);
   const [showSaveMenu, setShowSaveMenu] = useState(false);
   const [showSaveName, setShowSaveName] = useState(false);
@@ -46,6 +42,13 @@ const Menu = () => {
     setSaveIndex(i);
     setShowSaveName(true);
   };
+
+  useKeyPress('Escape', () => {
+    setShowLoadMenu(false);
+    setShowSaveMenu(false);
+    setShowSaveName(false);
+    dispatch(menuActions.toggle());
+  });
 
   return (
     <>

@@ -1,16 +1,17 @@
-import { takeEvery, put, delay } from 'redux-saga/effects';
+import { takeEvery, put, delay, select } from 'redux-saga/effects';
 import uuidv4 from 'uuid/v4';
 import menuActions from 'core/menu/actions';
 import dialogActions from 'core/dialog/actions';
 import coreActions from 'core/actions';
-import store, { initialState } from 'core/store';
+import { initialState } from 'constants/initialState';
 
 function* saveGame({ payload }) {
   try {
+    const state = yield select();
     const data = JSON.parse(localStorage.getItem('savedGames')) || [{}, {}, {}, {}, {}];
     data[payload.index].name = payload.name;
     data[payload.index].id = uuidv4();
-    data[payload.index].data = store.getState();
+    data[payload.index].data = state;
 
     yield localStorage.setItem('savedGames', {
       ...initialState,

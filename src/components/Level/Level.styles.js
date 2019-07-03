@@ -9,8 +9,7 @@ export default {
     position: 'absolute',
     padding: 5,
     fontSize: 13,
-    background: 'green',
-    // background: `url(${sample}) 0 0 no-repeat`,
+    background: `url(${sample}) 0 0 no-repeat`,
     backgroundSize: '100%',
     boxShadow: '0 0 10px #000 inset',
     top: 7,
@@ -61,53 +60,5 @@ export default {
     '&:hover': {
       background: `url(${turnLeft}) 50% 50% no-repeat`,
     },
-  },
-
-  viewport: {
-    display: 'flex',
-    flexDirection: 'column-reverse',
-    alignItems: 'center',
-    height: '100%',
-    justifyContent: 'center',
-  },
-
-  row: {
-    display: 'flex',
-    width: '100%',
-    margin: '0 0 1px 0',
-  },
-
-  col: {
-    height: '100%',
-    margin: '0 1px 0 0',
-    background: 'black',
-  },
-
-  activeColN: {
-    height: '100%',
-    width: '100%',
-    background: 'white',
-    borderTop: '2px solid blue',
-  },
-
-  activeColS: {
-    height: '100%',
-    width: '100%',
-    background: 'white',
-    borderBottom: '2px solid blue',
-  },
-
-  activeColE: {
-    height: '100%',
-    width: '100%',
-    background: 'white',
-    borderRight: '2px solid blue',
-  },
-
-  activeColW: {
-    height: '100%',
-    width: '100%',
-    background: 'white',
-    borderLeft: '2px solid blue',
   },
 };

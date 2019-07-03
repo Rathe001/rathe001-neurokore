@@ -9,6 +9,7 @@ import CharacterSheet from 'components/CharacterSheet';
 import Menu from 'components/Menu';
 import Level from 'components/Level';
 import Compass from 'components/Compass';
+import Map from 'components/Map';
 import styles from './Ui.styles';
 
 const useStyles = createUseStyles(styles);
@@ -28,6 +29,7 @@ const Ui = () => {
       <Tooltip />
       <Party />
       <Menu />
+      {statePartyCreationComplete && <Map />}
       {statePartyCreationComplete && <Compass />}
     </div>
   );
