@@ -2,10 +2,11 @@ export default {
   map: {
     position: 'absolute',
     fontSize: 13,
-    background: 'green',
+    background: 'black',
     backgroundSize: '100%',
     boxShadow: '0 0 10px #000 inset',
-    top: 58,
+    overflow: 'hidden',
+    top: 57,
     left: 155,
     width: 45,
     height: 45,
@@ -14,48 +15,54 @@ export default {
   viewport: {
     display: 'flex',
     flexDirection: 'column-reverse',
-    alignItems: 'center',
+    position: 'absolute',
+    left: '45%',
+    bottom: '45%',
     height: '100%',
-    justifyContent: 'center',
   },
 
   row: {
     display: 'flex',
     width: '100%',
     margin: '0 0 1px 0',
+    minHeight: 4,
   },
 
   col: {
     height: '100%',
     margin: '0 1px 0 0',
-    background: 'black',
+    minWidth: 4,
+  },
+
+  cellOpen: {
+    background: '#222',
   },
 
   activeColN: {
     height: '100%',
     width: '100%',
     background: 'white',
-    borderTop: '1px solid blue',
+    borderTop: '2px solid green',
   },
 
   activeColS: {
     height: '100%',
     width: '100%',
     background: 'white',
-    borderBottom: '1px solid blue',
+    borderBottom: '2px solid green',
   },
 
   activeColE: {
     height: '100%',
     width: '100%',
     background: 'white',
-    borderRight: '1px solid blue',
+    borderRight: '2px solid green',
   },
 
   activeColW: {
     height: '100%',
     width: '100%',
     background: 'white',
-    borderLeft: '1px solid blue',
+    borderLeft: '2px solid green',
   },
 };

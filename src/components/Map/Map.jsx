@@ -1,214 +1,54 @@
 import React from 'react';
 import classnames from 'classnames';
 import { createUseStyles } from 'react-jss';
-import { useDispatch, useSelector } from 'react-redux';
-import { useKeyPress } from 'hooks/keyboard';
-import levelActions from 'core/level/actions';
+import { useSelector } from 'react-redux';
 import styles from './Map.styles';
 
 const useStyles = createUseStyles(styles);
 
-const levelData = [
-  {
-    id: 0,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 1,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 2,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 3,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 4,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 5,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 6,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 7,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 8,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-  {
-    id: 9,
-    cells: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 },
-      { id: 3 },
-      { id: 4 },
-      { id: 5 },
-      { id: 6 },
-      { id: 7 },
-      { id: 8 },
-      { id: 9 },
-    ],
-  },
-];
-
 const Map = () => {
   const classes = useStyles();
-  const dispatch = useDispatch();
 
   const statePosX = useSelector(state => state.level.position.x);
   const statePosY = useSelector(state => state.level.position.y);
   const statePosFacing = useSelector(state => state.level.position.facing);
-
-  useKeyPress('ArrowUp', () => dispatch(levelActions.moveForward()));
-  useKeyPress('ArrowRight', () => dispatch(levelActions.turnRight()));
-  useKeyPress('ArrowDown', () => dispatch(levelActions.moveBackward()));
-  useKeyPress('ArrowLeft', () => dispatch(levelActions.turnLeft()));
+  const stateLevelData = useSelector(state => state.level.levelData);
 
   return (
     <div className={classes.map}>
-      <div className={classes.viewport}>
-        {levelData.map((row, y) => (
-          <div
-            key={row.id}
-            className={classes.row}
-            style={{
-              height: `${100 / levelData.length}%`,
-            }}
-          >
-            {row.cells.map((cell, x) => (
-              <div
-                className={classes.col}
-                key={cell.id}
-                style={{
-                  width: `${100 / levelData[0].cells.length}%`,
-                }}
-              >
+      <div
+        className={classes.viewport}
+        style={{
+          marginLeft: statePosX * -5,
+          marginBottom: statePosY * -5,
+        }}
+      >
+        {stateLevelData &&
+          stateLevelData.data.map((row, y) => (
+            <div key={row.id} className={classes.row}>
+              {row.cells.map((cell, x) => (
                 <div
-                  className={classnames({
-                    [classes.activeColN]:
-                      y === statePosY && x === statePosX && statePosFacing === 'n',
-                    [classes.activeColS]:
-                      y === statePosY && x === statePosX && statePosFacing === 's',
-                    [classes.activeColE]:
-                      y === statePosY && x === statePosX && statePosFacing === 'e',
-                    [classes.activeColW]:
-                      y === statePosY && x === statePosX && statePosFacing === 'w',
+                  className={classnames(classes.col, {
+                    [classes.cellOpen]: cell.open && cell.explored,
                   })}
-                />
-              </div>
-            ))}
-          </div>
-        ))}
+                  key={cell.id}
+                >
+                  <div
+                    className={classnames({
+                      [classes.activeColN]:
+                        y === statePosY && x === statePosX && statePosFacing === 'n',
+                      [classes.activeColS]:
+                        y === statePosY && x === statePosX && statePosFacing === 's',
+                      [classes.activeColE]:
+                        y === statePosY && x === statePosX && statePosFacing === 'e',
+                      [classes.activeColW]:
+                        y === statePosY && x === statePosX && statePosFacing === 'w',
+                    })}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
       </div>
     </div>
   );

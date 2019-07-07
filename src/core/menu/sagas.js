@@ -9,14 +9,15 @@ function* saveGame({ payload }) {
   try {
     const state = yield select();
     const data = JSON.parse(localStorage.getItem('savedGames')) || [{}, {}, {}, {}, {}];
+    data[payload.index] = {
+      ...initialState,
+      ...data[payload.index],
+    };
     data[payload.index].name = payload.name;
     data[payload.index].id = uuidv4();
     data[payload.index].data = state;
 
-    yield localStorage.setItem('savedGames', {
-      ...initialState,
-      ...JSON.stringify(data),
-    });
+    yield localStorage.setItem('savedGames', JSON.stringify(data));
     yield put(menuActions.hide());
     yield delay(250);
     yield put(dialogActions.setText('Game saved successfully.'));

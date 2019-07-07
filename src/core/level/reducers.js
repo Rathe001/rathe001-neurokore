@@ -64,6 +64,45 @@ const reducer = (state = {}, action) => {
           ...getPosition('backward', state.position.facing, state.position.x, state.position.y),
         },
       };
+    case actions.SET_DATA:
+      return {
+        ...state,
+        levelData: action.payload,
+      };
+    case actions.SET_POSITION:
+      return {
+        ...state,
+        position: {
+          x: action.payload.x,
+          y: action.payload.y,
+          facing: action.payload.facing,
+        },
+      };
+    case actions.EXPLORE_AREA:
+      return {
+        ...state,
+        levelData: {
+          ...state.levelData,
+          data: state.levelData.data.map((row, rowIndex) => {
+            return {
+              ...row,
+              cells: row.cells.map((cell, cellIndex) => {
+                return {
+                  ...cell,
+                  explored: cell.explored
+                    ? cell.explored
+                    : Math.abs(rowIndex - state.position.y) <= 1 &&
+                      Math.abs(cellIndex - state.position.x) <= 1 &&
+                      !(
+                        Math.abs(rowIndex - state.position.y) === 1 &&
+                        Math.abs(cellIndex - state.position.x) === 1
+                      ),
+                };
+              }),
+            };
+          }),
+        },
+      };
 
     default:
       return state;
