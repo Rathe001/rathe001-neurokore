@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
 import { useDispatch, useSelector } from 'react-redux';
+import classnames from 'classnames';
 import { useKeyPress } from 'hooks/keyboard';
 import levelActions from 'core/level/actions';
 import styles from './Level.styles';
@@ -65,6 +66,71 @@ const Level = () => {
 
   return (
     <div className={classes.level}>
+      <div className={classes.perspective}>
+        <div className={classes.ceiling}>
+          <div
+            className={classnames(classes.ceilingForeground, {
+              [classes.ceilingTech1]: true,
+            })}
+          />
+          <div
+            className={classnames(classes.ceilingBackground, {
+              [classes.ceilingTech1]: true,
+            })}
+          />
+        </div>
+        <div className={classes.floor}>
+          <div
+            className={classnames(classes.floorForeground, {
+              [classes.floorTech1]: true,
+            })}
+          />
+          <div
+            className={classnames(classes.floorBackground, {
+              [classes.floorTech1]: true,
+            })}
+          />
+        </div>
+        <div className={classes.rightWall}>
+          <div
+            className={classnames(classes.rightWallForeground, {
+              [classes.wallTech1]: true,
+            })}
+          />
+          <div
+            className={classnames(classes.rightWallBackground, {
+              [classes.wallTech1]: true,
+            })}
+          />
+        </div>
+        <div className={classes.leftWall}>
+          <div
+            className={classnames(classes.leftWallForeground, {
+              [classes.wallTech1]: true,
+            })}
+          />
+          <div
+            className={classnames(classes.leftWallBackground, {
+              [classes.wallTech1]: true,
+            })}
+          />
+        </div>
+        <div className={classes.backWall}>
+          <div
+            className={classnames(classes.backWallForeground, {
+              [classes.wallTech1]: true,
+            })}
+          />
+          <div
+            className={classnames(classes.backWallBackground, {
+              [classes.wallTech1]: true,
+            })}
+          />
+        </div>
+      </div>
+
+      <div className={classes.overlay} />
+
       <div className={classes.moveForward} onClick={() => moveForward()} />
       <div className={classes.turnRight} onClick={() => dispatch(levelActions.turnRight())} />
       <div className={classes.moveBackward} onClick={() => moveBackward()} />
