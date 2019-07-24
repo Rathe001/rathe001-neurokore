@@ -10,7 +10,7 @@ export default {
     width: '100%',
     height: '100%',
     transformOrigin: 'right',
-    transform: 'rotateY(-90deg)',
+    transform: 'rotateY(-90deg) translateX(3em)',
   },
 
   rightWallCenter: {
@@ -19,13 +19,14 @@ export default {
     display: 'flex',
     flexDirection: 'row-reverse',
   },
-  rightWallTileA: { width: '25%', height: '100%', zIndex: '5' },
-  rightWallTileB: { width: '100%', height: '100%', zIndex: '4' },
-  rightWallTileC: { width: '100%', height: '100%', zIndex: '3' },
-  rightWallTileD: { width: '100%', height: '100%', zIndex: '2' },
-  rightWallTileE: { width: '100%', height: '100%', zIndex: '1' },
+  rightWallTileA: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  rightWallTileB: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  rightWallTileC: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  rightWallTileD: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  rightWallTileE: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
 
   wallTech1: {
     backgroundImage: `url(${wallTech1})`,
+    backgroundSize: '100% 100%',
   },
 };

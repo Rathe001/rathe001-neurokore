@@ -1,7 +1,7 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import textures from 'constants/textures';
 import styles from './LeftWall.styles';
 
 const useStyles = createUseStyles(styles);
@@ -19,11 +19,36 @@ const LeftWall = ({ A, B, C, D, E }) => {
   return (
     <div className={classes.leftWall}>
       <div className={classes.leftWallCenter}>
-        <div className={classnames(classes.leftWallTileA, { [classes[A]]: !!A })} />
-        <div className={classnames(classes.leftWallTileB, { [classes[B]]: !!B })} />
-        <div className={classnames(classes.leftWallTileC, { [classes[C]]: !!C })} />
-        <div className={classnames(classes.leftWallTileD, { [classes[D]]: !!D })} />
-        <div className={classnames(classes.leftWallTileE, { [classes[E]]: !!E })} />
+        <div
+          className={classes.leftWallTileA}
+          style={{
+            backgroundImage: A && textures[A] ? `${textures.pLeftA}, ${textures[A]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.leftWallTileB}
+          style={{
+            backgroundImage: B && textures[B] ? `${textures.pLeftB}, ${textures[B]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.leftWallTileC}
+          style={{
+            backgroundImage: C && textures[C] ? `${textures.pLeftC}, ${textures[C]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.leftWallTileD}
+          style={{
+            backgroundImage: D && textures[D] ? `${textures.pLeftD}, ${textures[D]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.leftWallTileE}
+          style={{
+            backgroundImage: E && textures[E] ? `${textures.pLeftE}, ${textures[E]}` : 'none',
+          }}
+        />
       </div>
     </div>
   );

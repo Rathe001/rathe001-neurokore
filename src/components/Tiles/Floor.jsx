@@ -1,7 +1,7 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import textures from 'constants/textures';
 import styles from './Floor.styles';
 
 const useStyles = createUseStyles(styles);
@@ -19,27 +19,102 @@ const Floor = ({ AL, A, AR, BL, B, BR, CL, C, CR, DL, D, DR, EL, E, ER }) => {
   return (
     <div className={classes.floor}>
       <div className={classes.floorLeft}>
-        <div className={classnames(classes.floorTileAL, { [classes[AL]]: !!AL })} />
-        <div className={classnames(classes.floorTileBL, { [classes[BL]]: !!BL })} />
-        <div className={classnames(classes.floorTileCL, { [classes[CL]]: !!CL })} />
-        <div className={classnames(classes.floorTileDL, { [classes[DL]]: !!DL })} />
-        <div className={classnames(classes.floorTileEL, { [classes[EL]]: !!EL })} />
+        <div
+          className={classes.floorTileAL}
+          style={{
+            backgroundImage: AL && textures[AL] ? `${textures.pFloorA}, ${textures[AL]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileBL}
+          style={{
+            backgroundImage: BL && textures[BL] ? `${textures.pFloorB}, ${textures[BL]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileCL}
+          style={{
+            backgroundImage: CL && textures[CL] ? `${textures.pFloorC}, ${textures[CL]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileDL}
+          style={{
+            backgroundImage: DL && textures[DL] ? `${textures.pFloorD}, ${textures[DL]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileEL}
+          style={{
+            backgroundImage: EL && textures[EL] ? `${textures.pFloorE}, ${textures[EL]}` : 'none',
+          }}
+        />
       </div>
 
       <div className={classes.floorCenter}>
-        <div className={classnames(classes.floorTileA, { [classes[A]]: !!A })} />
-        <div className={classnames(classes.floorTileB, { [classes[B]]: !!B })} />
-        <div className={classnames(classes.floorTileC, { [classes[C]]: !!C })} />
-        <div className={classnames(classes.floorTileD, { [classes[D]]: !!D })} />
-        <div className={classnames(classes.floorTileE, { [classes[E]]: !!E })} />
+        <div
+          className={classes.floorTileA}
+          style={{
+            backgroundImage: A && textures[A] ? `${textures.pFloorA}, ${textures[A]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileB}
+          style={{
+            backgroundImage: B && textures[B] ? `${textures.pFloorB}, ${textures[B]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileC}
+          style={{
+            backgroundImage: C && textures[C] ? `${textures.pFloorC}, ${textures[C]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileD}
+          style={{
+            backgroundImage: D && textures[D] ? `${textures.pFloorD}, ${textures[D]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileE}
+          style={{
+            backgroundImage: E && textures[E] ? `${textures.pFloorE}, ${textures[E]}` : 'none',
+          }}
+        />
       </div>
 
       <div className={classes.floorRight}>
-        <div className={classnames(classes.floorTileAR, { [classes[AR]]: !!AR })} />
-        <div className={classnames(classes.floorTileBR, { [classes[BR]]: !!BR })} />
-        <div className={classnames(classes.floorTileCR, { [classes[CR]]: !!CR })} />
-        <div className={classnames(classes.floorTileDR, { [classes[DR]]: !!DR })} />
-        <div className={classnames(classes.floorTileER, { [classes[ER]]: !!ER })} />
+        <div
+          className={classes.floorTileAR}
+          style={{
+            background: AR && textures[AR] ? `${textures.pFloorA}, ${textures[AR]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileBR}
+          style={{
+            backgroundImage: BR && textures[BR] ? `${textures.pFloorB}, ${textures[BR]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileCR}
+          style={{
+            backgroundImage: CR && textures[CR] ? `${textures.pFloorC}, ${textures[CR]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileDR}
+          style={{
+            backgroundImage: DR && textures[DR] ? `${textures.pFloorD}, ${textures[DR]}` : 'none',
+          }}
+        />
+        <div
+          className={classes.floorTileER}
+          style={{
+            backgroundImage: ER && textures[ER] ? `${textures.pFloorE}, ${textures[ER]}` : 'none',
+          }}
+        />
       </div>
     </div>
   );

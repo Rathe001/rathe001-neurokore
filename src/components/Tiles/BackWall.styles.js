@@ -1,5 +1,3 @@
-import wallTech1 from 'assets/textures/wallTech1.png';
-
 export default {
   backWall: {},
 
@@ -13,8 +11,8 @@ export default {
     height: '100%',
     margin: '0 0 0 -100%',
     transformOrigin: 'top',
-    transform: 'translateZ(-3.6rem)',
-    zIndex: '5',
+    transform: 'translateZ(-1.84em)',
+    zIndex: '1',
 
     '& div': {
       width: '100%',
@@ -32,7 +30,7 @@ export default {
     height: '100%',
     margin: '0 0 0 -100%',
     transformOrigin: 'top',
-    transform: 'translateZ(-17.9rem)',
+    transform: 'translateZ(-6.7em)',
 
     '& div': {
       width: '100%',
@@ -50,7 +48,7 @@ export default {
     height: '100%',
     margin: '0 0 0 -100%',
     transformOrigin: 'top',
-    transform: 'translateZ(-32rem)',
+    transform: 'translateZ(-11.5em)',
 
     '& div': {
       width: '100%',
@@ -68,7 +66,7 @@ export default {
     height: '100%',
     margin: '0 0 0 -100%',
     transformOrigin: 'top',
-    transform: 'translateZ(-46.1rem)',
+    transform: 'translateZ(-16.5em)',
 
     '& div': {
       width: '100%',
@@ -86,15 +84,11 @@ export default {
     height: '100%',
     margin: '0 0 0 -100%',
     transformOrigin: 'top',
-    transform: 'translateZ(-61.3rem)',
+    transform: 'translateZ(-21.5em)',
 
     '& div': {
       width: '100%',
       height: '100%',
     },
-  },
-
-  wallTech1: {
-    backgroundImage: `url(${wallTech1})`,
   },
 };

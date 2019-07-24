@@ -10,7 +10,7 @@ export default {
     width: '100%',
     height: '100%',
     transformOrigin: 'left',
-    transform: 'rotateY(90deg)',
+    transform: 'rotateY(90deg) translateX(-3em)',
   },
 
   leftWallCenter: {
@@ -19,13 +19,14 @@ export default {
     display: 'flex',
     flexDirection: 'row',
   },
-  leftWallTileA: { width: '25%', height: '100%', zIndex: '5' },
-  leftWallTileB: { width: '100%', height: '100%', zIndex: '4' },
-  leftWallTileC: { width: '100%', height: '100%', zIndex: '3' },
-  leftWallTileD: { width: '100%', height: '100%', zIndex: '2' },
-  leftWallTileE: { width: '100%', height: '100%', zIndex: '1' },
+  leftWallTileA: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  leftWallTileB: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  leftWallTileC: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  leftWallTileD: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
+  leftWallTileE: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
 
   wallTech1: {
     backgroundImage: `url(${wallTech1})`,
+    backgroundSize: '100% 100%',
   },
 };
