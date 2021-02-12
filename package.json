@@ -23,7 +23,7 @@
   "scripts": {
     "publishMe": "git push origin `git subtree split --prefix build master`:gh-pages --force",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "PUBLIC_URL=https://astigmapro.com/neurokore react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
