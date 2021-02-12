@@ -1,0 +1,1497 @@
+{
+  "encounterRate": 0.3,
+  "startPosition": {
+    "x": 1,
+    "y": 0,
+    "facing": "n"
+  },
+  "data": [
+    {
+      "id": 0,
+      "cells": [
+        {
+          "id": 0,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "cells": [
+        {
+          "id": 0,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "doorTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 3,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "doorTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 4,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "doorTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 7,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "doorTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 8,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "doorTech1",
+            "s": "doorTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cells": [
+        {
+          "id": 0,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "cells": [
+        {
+          "id": 0,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "doorTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "doorTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "cells": [
+        {
+          "id": 0,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "cells": [
+        {
+          "id": 0,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "doorTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 3,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 4,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 7,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 8,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "doorTech1",
+            "s": "",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "wallTech1",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "cells": [
+        {
+          "id": 0,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "cells": [
+        {
+          "id": 0,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "doorTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "doorTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": true,
+          "n": "wallTech1",
+          "e": "wallTech1",
+          "s": "wallTech1",
+          "w": "doorTech1",
+          "c": "ceilingTech1",
+          "f": "floorTech1"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "cells": [
+        {
+          "id": 0,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "",
+            "e": "wallTech1",
+            "s": "",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": false,
+          "n": "",
+          "e": "",
+          "s": "",
+          "w": "",
+          "c": "",
+          "f": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "cells": [
+        {
+          "id": 0,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "doorTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "",
+            "s": "",
+            "w": "doorTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 3,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 4,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 7,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 8,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "",
+            "s": "wallTech1",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "doorTech1",
+            "e": "doorTech1",
+            "s": "",
+            "w": "",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "doorTech1",
+            "s": "wallTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "cells": [
+        {
+          "id": 0,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 1,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "doorTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 2,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 3,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "doorTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 4,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 5,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "doorTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 6,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 7,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "doorTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 8,
+          "open": false,
+          "faces": {
+            "n": "",
+            "e": "",
+            "s": "",
+            "w": "",
+            "c": "",
+            "f": ""
+          }
+        },
+        {
+          "id": 9,
+          "open": true,
+          "faces": {
+            "n": "wallTech1",
+            "e": "wallTech1",
+            "s": "doorTech1",
+            "w": "wallTech1",
+            "c": "ceilingTech1",
+            "f": "floorTech1"
+          }
+        },
+        {
+          "id": 10,
+          "open": false
+        }
+      ]
+    }
+  ]
+}
