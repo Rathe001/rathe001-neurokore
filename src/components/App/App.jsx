@@ -9,17 +9,16 @@ import styles from './App.styles';
 
 const useStyles = createUseStyles(styles);
 
-const getScaleRatio = () => {
-  return window.innerWidth / window.innerHeight < VARIABLES.ui.width / VARIABLES.ui.height
+const getScaleRatio = () => (
+  window.innerWidth / window.innerHeight < VARIABLES.ui.width / VARIABLES.ui.height
     ? window.innerWidth / VARIABLES.ui.width
-    : window.innerHeight / VARIABLES.ui.height;
-};
+    : window.innerHeight / VARIABLES.ui.height);
 
 const App = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateUiScale = useSelector(state => state.ui.scale);
+  const stateUiScale = useSelector((state) => state.ui.scale);
 
   useEffect(() => {
     window.addEventListener('resize', () => dispatch(uiActions.setScale(getScaleRatio())));

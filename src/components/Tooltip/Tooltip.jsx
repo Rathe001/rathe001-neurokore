@@ -9,8 +9,8 @@ const useStyles = createUseStyles(styles);
 const Tooltip = () => {
   const classes = useStyles();
 
-  const stateTooltipShow = useSelector(state => state.tooltip.show);
-  const stateTooltipText = useSelector(state => state.tooltip.text);
+  const stateTooltipShow = useSelector((state) => state.tooltip.show);
+  const stateTooltipText = useSelector((state) => state.tooltip.text);
 
   return (
     <div

@@ -1,6 +1,6 @@
 const actions = {
   SET_SCALE: 'UI_SET_SCALE',
-  setScale: data => ({
+  setScale: (data) => ({
     type: actions.SET_SCALE,
     payload: data,
   }),

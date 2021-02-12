@@ -1,5 +1,7 @@
-import { takeEvery, put, delay, select } from 'redux-saga/effects';
-import uuidv4 from 'uuid/v4';
+import {
+  takeEvery, put, delay, select,
+} from 'redux-saga/effects';
+import { v4 as uuidv4 } from 'uuid';
 import menuActions from 'core/menu/actions';
 import dialogActions from 'core/dialog/actions';
 import coreActions from 'core/actions';
@@ -31,7 +33,7 @@ function* saveGame({ payload }) {
 function* loadGame({ payload }) {
   try {
     const { data } = JSON.parse(localStorage.getItem('savedGames')).find(
-      game => game.name === payload,
+      (game) => game.name === payload,
     );
     yield put(
       coreActions.setStateFromData({

@@ -14,10 +14,10 @@ const CharacterCreation = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateCharacterCreation = useSelector(state => state.characterCreation);
-  const statePartyCreationComplete = useSelector(state => state.party.creationComplete);
+  const stateCharacterCreation = useSelector((state) => state.characterCreation);
+  const statePartyCreationComplete = useSelector((state) => state.party.creationComplete);
 
-  const subtractAttr = stat => {
+  const subtractAttr = (stat) => {
     if (stateCharacterCreation[stat.abbr] > 0) {
       dispatch(characterCreationActions.setAttr(stat.abbr, stateCharacterCreation[stat.abbr] - 1));
       dispatch(
@@ -26,7 +26,7 @@ const CharacterCreation = () => {
     }
   };
 
-  const addAttr = stat => {
+  const addAttr = (stat) => {
     if (stateCharacterCreation.remaining - stat.cost >= 0) {
       dispatch(characterCreationActions.setAttr(stat.abbr, stateCharacterCreation[stat.abbr] + 1));
       dispatch(
@@ -72,13 +72,13 @@ const CharacterCreation = () => {
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
-              onChange={e => dispatch(characterCreationActions.setAttr('name', e.target.value))}
+              onChange={(e) => dispatch(characterCreationActions.setAttr('name', e.target.value))}
               value={stateCharacterCreation.name}
             />
           </label>
           <br />
           <hr className={classes.hr} />
-          {STATS.map(stat => (
+          {STATS.map((stat) => (
             <div
               key={stat.id}
               onMouseOver={() => dispatch(tooltipActions.setText(stat.desc))}

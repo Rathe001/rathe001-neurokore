@@ -13,7 +13,7 @@ const actions = {
   }),
 
   ADD_CHARACTER: 'CHARACTER_CREATION_ADD_CHARACTER',
-  addCharacter: payload => ({
+  addCharacter: (payload) => ({
     type: actions.ADD_CHARACTER,
     payload,
   }),

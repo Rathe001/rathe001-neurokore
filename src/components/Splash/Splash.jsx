@@ -12,7 +12,7 @@ const Splash = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateSplashShow = useSelector(state => state.splash.show);
+  const stateSplashShow = useSelector((state) => state.splash.show);
 
   return (
     <div

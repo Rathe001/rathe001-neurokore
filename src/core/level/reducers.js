@@ -83,24 +83,20 @@ const reducer = (state = {}, action) => {
         ...state,
         levelData: {
           ...state.levelData,
-          data: state.levelData.data.map((row, rowIndex) => {
-            return {
-              ...row,
-              cells: row.cells.map((cell, cellIndex) => {
-                return {
-                  ...cell,
-                  explored: cell.explored
-                    ? cell.explored
-                    : Math.abs(rowIndex - state.position.y) <= 1 &&
-                      Math.abs(cellIndex - state.position.x) <= 1 &&
-                      !(
-                        Math.abs(rowIndex - state.position.y) === 1 &&
-                        Math.abs(cellIndex - state.position.x) === 1
+          data: state.levelData.data.map((row, rowIndex) => ({
+            ...row,
+            cells: row.cells.map((cell, cellIndex) => ({
+              ...cell,
+              explored: cell.explored
+                ? cell.explored
+                : Math.abs(rowIndex - state.position.y) <= 1
+                      && Math.abs(cellIndex - state.position.x) <= 1
+                      && !(
+                        Math.abs(rowIndex - state.position.y) === 1
+                        && Math.abs(cellIndex - state.position.x) === 1
                       ),
-                };
-              }),
-            };
-          }),
+            })),
+          })),
         },
       };
 

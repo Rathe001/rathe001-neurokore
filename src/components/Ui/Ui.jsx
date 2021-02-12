@@ -17,7 +17,7 @@ const useStyles = createUseStyles(styles);
 const Ui = () => {
   const classes = useStyles();
 
-  const statePartyCreationComplete = useSelector(state => state.party.creationComplete);
+  const statePartyCreationComplete = useSelector((state) => state.party.creationComplete);
 
   return (
     <div className={classes.ui}>

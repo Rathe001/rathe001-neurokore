@@ -13,7 +13,9 @@ const useStyles = createUseStyles(styles);
  * BL B BR
  * AL A AR
  */
-const LeftWall = ({ A, B, C, D, E }) => {
+const LeftWall = ({
+  A, B, C, D, E,
+}) => {
   const classes = useStyles();
 
   return (

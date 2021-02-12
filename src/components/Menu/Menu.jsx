@@ -12,7 +12,7 @@ const Menu = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateMenuShow = useSelector(state => state.menu.show);
+  const stateMenuShow = useSelector((state) => state.menu.show);
 
   const [showLoadMenu, setShowLoadMenu] = useState(false);
   const [showSaveMenu, setShowSaveMenu] = useState(false);
@@ -37,7 +37,7 @@ const Menu = () => {
     setShowSaveName(false);
   };
 
-  const chooseFile = i => {
+  const chooseFile = (i) => {
     handleBack();
     setSaveIndex(i);
     setShowSaveName(true);
@@ -93,8 +93,8 @@ const Menu = () => {
         {showLoadMenu && (
           <div>
             {savedGames
-              .filter(game => game.name)
-              .map(game => (
+              .filter((game) => game.name)
+              .map((game) => (
                 <div key={game.name}>
                   <button
                     type="button"
@@ -136,7 +136,7 @@ const Menu = () => {
               className={classes.saveNameInput}
               type="text"
               defaultValue={savedGames[saveIndex].name}
-              onChange={e => {
+              onChange={(e) => {
                 savedGames[saveIndex].name = e.target.value;
               }}
             />

@@ -1,23 +1,17 @@
 const actions = {
   SHOW: 'MENU_SHOW',
-  show: () => {
-    return {
-      type: actions.SHOW,
-    };
-  },
+  show: () => ({
+    type: actions.SHOW,
+  }),
   HIDE: 'MENU_HIDE',
-  hide: () => {
-    return {
-      type: actions.HIDE,
-    };
-  },
+  hide: () => ({
+    type: actions.HIDE,
+  }),
 
   TOGGLE: 'MENU_TOGGLE',
-  toggle: () => {
-    return {
-      type: actions.TOGGLE,
-    };
-  },
+  toggle: () => ({
+    type: actions.TOGGLE,
+  }),
 
   SAVE_GAME: 'MENU_SAVE_GAME',
   saveGame: (name, index) => ({
@@ -29,7 +23,7 @@ const actions = {
   }),
 
   LOAD_GAME: 'MENU_LOAD_GAME',
-  loadGame: payload => ({
+  loadGame: (payload) => ({
     type: actions.LOAD_GAME,
     payload,
   }),

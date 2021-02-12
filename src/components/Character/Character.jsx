@@ -10,7 +10,9 @@ import styles from './Character.styles';
 
 const useStyles = createUseStyles(styles);
 
-const Character = ({ data, move, index, id }) => {
+const Character = ({
+  data, move, index, id,
+}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const ref = useRef(null);
@@ -45,7 +47,7 @@ const Character = ({ data, move, index, id }) => {
   });
   const [{ isDragging }, drag] = useDrag({
     item: { type: DND_ITEM_TYPES.CHARACTER, id, index },
-    collect: monitor => ({
+    collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
   });
@@ -62,9 +64,7 @@ const Character = ({ data, move, index, id }) => {
       <div className={classes.name}>{data.name}</div>
       <div
         className={classes.hp}
-        onMouseEnter={() =>
-          dispatch(tooltipActions.setText(`Hit Points: ${data.HP_CUR} of ${data.HP_MAX}`))
-        }
+        onMouseEnter={() => dispatch(tooltipActions.setText(`Hit Points: ${data.HP_CUR} of ${data.HP_MAX}`))}
         onMouseLeave={() => dispatch(tooltipActions.setText(''))}
       >
         {data.HP_CUR}
@@ -75,9 +75,7 @@ const Character = ({ data, move, index, id }) => {
       {data.ENERGY_MAX > 0 && (
         <span
           className={classes.resources}
-          onMouseEnter={() =>
-            dispatch(tooltipActions.setText(`Energy: ${data.ENERGY_CUR} of ${data.ENERGY_MAX}`))
-          }
+          onMouseEnter={() => dispatch(tooltipActions.setText(`Energy: ${data.ENERGY_CUR} of ${data.ENERGY_MAX}`))}
           onMouseLeave={() => dispatch(tooltipActions.setText(''))}
         >
           {data.ENERGY_CUR}
@@ -88,7 +86,13 @@ const Character = ({ data, move, index, id }) => {
 };
 
 Character.propTypes = {
-  data: PropTypes.shape({}).isRequired,
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    HP_CUR: PropTypes.number,
+    HP_MAX: PropTypes.number,
+    ENERGY_MAX: PropTypes.number,
+    ENERGY_CUR: PropTypes.number,
+  }).isRequired,
   index: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   move: PropTypes.func.isRequired,

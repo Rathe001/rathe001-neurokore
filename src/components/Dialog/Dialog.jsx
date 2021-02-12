@@ -8,8 +8,8 @@ const useStyles = createUseStyles(styles);
 
 const Dialog = () => {
   const classes = useStyles();
-  const stateDialogShow = useSelector(state => state.dialog.show);
-  const stateDialogText = useSelector(state => state.dialog.text);
+  const stateDialogShow = useSelector((state) => state.dialog.show);
+  const stateDialogText = useSelector((state) => state.dialog.text);
 
   return (
     <div

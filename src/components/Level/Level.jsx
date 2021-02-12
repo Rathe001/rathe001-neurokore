@@ -12,23 +12,23 @@ const Level = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateLevelData = useSelector(state => state.level.levelData);
-  const stateLevelPosition = useSelector(state => state.level.position);
+  const stateLevelData = useSelector((state) => state.level.levelData);
+  const stateLevelPosition = useSelector((state) => state.level.position);
 
   function moveForward() {
     if (
-      (stateLevelPosition.facing === 'n' &&
-        stateLevelData.data[stateLevelPosition.y + 1] &&
-        stateLevelData.data[stateLevelPosition.y + 1].cells[stateLevelPosition.x].open) ||
-      (stateLevelPosition.facing === 'e' &&
-        stateLevelData.data[stateLevelPosition.x + 1] &&
-        stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x + 1].open) ||
-      (stateLevelPosition.facing === 's' &&
-        stateLevelData.data[stateLevelPosition.y - 1] &&
-        stateLevelData.data[stateLevelPosition.y - 1].cells[stateLevelPosition.x].open) ||
-      (stateLevelPosition.facing === 'w' &&
-        stateLevelData.data[stateLevelPosition.x - 1] &&
-        stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x - 1].open)
+      (stateLevelPosition.facing === 'n'
+        && stateLevelData.data[stateLevelPosition.y + 1]
+        && stateLevelData.data[stateLevelPosition.y + 1].cells[stateLevelPosition.x].open)
+      || (stateLevelPosition.facing === 'e'
+        && stateLevelData.data[stateLevelPosition.x + 1]
+        && stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x + 1].open)
+      || (stateLevelPosition.facing === 's'
+        && stateLevelData.data[stateLevelPosition.y - 1]
+        && stateLevelData.data[stateLevelPosition.y - 1].cells[stateLevelPosition.x].open)
+      || (stateLevelPosition.facing === 'w'
+        && stateLevelData.data[stateLevelPosition.x - 1]
+        && stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x - 1].open)
     ) {
       dispatch(levelActions.moveForward());
     }
@@ -36,18 +36,18 @@ const Level = () => {
 
   function moveBackward() {
     if (
-      (stateLevelPosition.facing === 'n' &&
-        stateLevelData.data[stateLevelPosition.y - 1] &&
-        stateLevelData.data[stateLevelPosition.y - 1].cells[stateLevelPosition.x].open) ||
-      (stateLevelPosition.facing === 'e' &&
-        stateLevelData.data[stateLevelPosition.x - 1] &&
-        stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x - 1].open) ||
-      (stateLevelPosition.facing === 's' &&
-        stateLevelData.data[stateLevelPosition.y + 1] &&
-        stateLevelData.data[stateLevelPosition.y + 1].cells[stateLevelPosition.x].open) ||
-      (stateLevelPosition.facing === 'w' &&
-        stateLevelData.data[stateLevelPosition.x + 1] &&
-        stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x + 1].open)
+      (stateLevelPosition.facing === 'n'
+        && stateLevelData.data[stateLevelPosition.y - 1]
+        && stateLevelData.data[stateLevelPosition.y - 1].cells[stateLevelPosition.x].open)
+      || (stateLevelPosition.facing === 'e'
+        && stateLevelData.data[stateLevelPosition.x - 1]
+        && stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x - 1].open)
+      || (stateLevelPosition.facing === 's'
+        && stateLevelData.data[stateLevelPosition.y + 1]
+        && stateLevelData.data[stateLevelPosition.y + 1].cells[stateLevelPosition.x].open)
+      || (stateLevelPosition.facing === 'w'
+        && stateLevelData.data[stateLevelPosition.x + 1]
+        && stateLevelData.data[stateLevelPosition.y].cells[stateLevelPosition.x + 1].open)
     ) {
       dispatch(levelActions.moveBackward());
     }

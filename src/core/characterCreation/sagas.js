@@ -1,10 +1,10 @@
 import { takeEvery, put, select } from 'redux-saga/effects';
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import characterCreationActions from 'core/characterCreation/actions';
 import partyActions from 'core/party/actions';
 
 function* addCharacter(action) {
-  const party = yield select(state => state.party.characters);
+  const party = yield select((state) => state.party.characters);
   const stats = {
     ...action.payload,
     id: uuidv4(),
@@ -20,7 +20,7 @@ function* addCharacter(action) {
   stats.ENERGY_CUR = stats.ENERGY_MAX;
 
   try {
-    if (party.length >= 5 || party.find(m => m.name === stats.name)) {
+    if (party.length >= 5 || party.find((m) => m.name === stats.name)) {
       return;
     }
 

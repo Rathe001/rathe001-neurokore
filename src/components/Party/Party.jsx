@@ -13,7 +13,7 @@ const Party = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateParty = useSelector(state => state.party);
+  const stateParty = useSelector((state) => state.party);
 
   const move = useCallback(
     (dragIndex, hoverIndex) => {

@@ -13,7 +13,7 @@ export default {
   },
   app: {
     fontSize: `${VARIABLES.ui.width * 0.1}px`,
-    background: `#000`,
+    background: '#000',
     position: 'absolute',
     top: '50%',
     left: '50%',

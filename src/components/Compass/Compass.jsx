@@ -7,7 +7,7 @@ const useStyles = createUseStyles(styles);
 
 const Level = () => {
   const classes = useStyles();
-  const statePosition = useSelector(state => state.level.position);
+  const statePosition = useSelector((state) => state.level.position);
 
   return (
     <>

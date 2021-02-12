@@ -9,10 +9,10 @@ const useStyles = createUseStyles(styles);
 const Map = () => {
   const classes = useStyles();
 
-  const statePosX = useSelector(state => state.level.position.x);
-  const statePosY = useSelector(state => state.level.position.y);
-  const statePosFacing = useSelector(state => state.level.position.facing);
-  const stateLevelData = useSelector(state => state.level.levelData);
+  const statePosX = useSelector((state) => state.level.position.x);
+  const statePosY = useSelector((state) => state.level.position.y);
+  const statePosFacing = useSelector((state) => state.level.position.facing);
+  const stateLevelData = useSelector((state) => state.level.levelData);
 
   return (
     <div className={classes.map}>
@@ -23,8 +23,8 @@ const Map = () => {
           marginBottom: statePosY * -5,
         }}
       >
-        {stateLevelData &&
-          stateLevelData.data.map((row, y) => (
+        {stateLevelData
+          && stateLevelData.data.map((row, y) => (
             <div key={row.id} className={classes.row}>
               {row.cells.map((cell, x) => (
                 <div

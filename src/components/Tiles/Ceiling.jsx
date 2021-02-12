@@ -13,7 +13,9 @@ const useStyles = createUseStyles(styles);
  * BL B BR
  * AL A AR
  */
-const Ceiling = ({ AL, A, AR, BL, B, BR, CL, C, CR, DL, D, DR, EL, E, ER }) => {
+const Ceiling = ({
+  AL, A, AR, BL, B, BR, CL, C, CR, DL, D, DR, EL, E, ER,
+}) => {
   const classes = useStyles();
 
   return (

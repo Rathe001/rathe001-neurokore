@@ -11,8 +11,8 @@ const CharacterSheet = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const stateCharacterSheetCharacter = useSelector(state => state.characterSheet.character);
-  const stateCharacterSheetShow = useSelector(state => state.characterSheet.show);
+  const stateCharacterSheetCharacter = useSelector((state) => state.characterSheet.character);
+  const stateCharacterSheetShow = useSelector((state) => state.characterSheet.show);
 
   return (
     <div

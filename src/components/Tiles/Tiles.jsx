@@ -20,47 +20,47 @@ const useStyles = createUseStyles(styles);
 const Tiles = () => {
   const classes = useStyles();
 
-  const stateLevelData = useSelector(state => state.level.levelData.data);
-  const stateLevelPosition = useSelector(state => state.level.position);
+  const stateLevelData = useSelector((state) => state.level.levelData.data);
+  const stateLevelPosition = useSelector((state) => state.level.position);
 
   function getCell(yOffset, xOffset) {
     const { x, y, facing } = stateLevelPosition;
 
     switch (facing) {
       case 'e':
-        return stateLevelData &&
-          stateLevelData[y] &&
-          stateLevelData[y - xOffset] &&
-          stateLevelData[y - xOffset].cells &&
-          stateLevelData[y - xOffset].cells[x + yOffset] &&
-          stateLevelData[y - xOffset].cells[x + yOffset].faces
+        return stateLevelData
+          && stateLevelData[y]
+          && stateLevelData[y - xOffset]
+          && stateLevelData[y - xOffset].cells
+          && stateLevelData[y - xOffset].cells[x + yOffset]
+          && stateLevelData[y - xOffset].cells[x + yOffset].faces
           ? stateLevelData[y - xOffset].cells[x + yOffset]
           : { faces: {} };
       case 'w':
-        return stateLevelData &&
-          stateLevelData[y] &&
-          stateLevelData[y + xOffset] &&
-          stateLevelData[y + xOffset].cells &&
-          stateLevelData[y + xOffset].cells[x - yOffset] &&
-          stateLevelData[y + xOffset].cells[x - yOffset].faces
+        return stateLevelData
+          && stateLevelData[y]
+          && stateLevelData[y + xOffset]
+          && stateLevelData[y + xOffset].cells
+          && stateLevelData[y + xOffset].cells[x - yOffset]
+          && stateLevelData[y + xOffset].cells[x - yOffset].faces
           ? stateLevelData[y + xOffset].cells[x - yOffset]
           : { faces: {} };
       case 's':
-        return stateLevelData &&
-          stateLevelData[y] &&
-          stateLevelData[y - yOffset] &&
-          stateLevelData[y - yOffset].cells &&
-          stateLevelData[y - yOffset].cells[x + xOffset] &&
-          stateLevelData[y - yOffset].cells[x + xOffset].faces
+        return stateLevelData
+          && stateLevelData[y]
+          && stateLevelData[y - yOffset]
+          && stateLevelData[y - yOffset].cells
+          && stateLevelData[y - yOffset].cells[x + xOffset]
+          && stateLevelData[y - yOffset].cells[x + xOffset].faces
           ? stateLevelData[y - yOffset].cells[x + xOffset]
           : { faces: {} };
       default:
-        return stateLevelData &&
-          stateLevelData[y] &&
-          stateLevelData[y + yOffset] &&
-          stateLevelData[y + yOffset].cells &&
-          stateLevelData[y + yOffset].cells[x + xOffset] &&
-          stateLevelData[y + yOffset].cells[x + xOffset].faces
+        return stateLevelData
+          && stateLevelData[y]
+          && stateLevelData[y + yOffset]
+          && stateLevelData[y + yOffset].cells
+          && stateLevelData[y + yOffset].cells[x + xOffset]
+          && stateLevelData[y + yOffset].cells[x + xOffset].faces
           ? stateLevelData[y + yOffset].cells[x + xOffset]
           : { faces: {} };
     }

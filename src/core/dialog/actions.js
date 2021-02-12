@@ -5,7 +5,7 @@ const actions = {
   }),
 
   SET_TEXT: 'DIALOG_SET_TEXT',
-  setText: data => ({
+  setText: (data) => ({
     type: actions.SET_TEXT,
     payload: data,
   }),

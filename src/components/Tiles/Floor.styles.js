@@ -11,21 +11,27 @@ export default {
     transformOrigin: 'bottom',
     transform: 'rotateX(90deg) translateY(3em)',
   },
-  floorLeft: { width: '100%', height: '100%', display: 'flex', flexDirection: 'column-reverse' },
+  floorLeft: {
+    width: '100%', height: '100%', display: 'flex', flexDirection: 'column-reverse',
+  },
   floorTileAL: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileBL: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileCL: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileDL: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileEL: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
 
-  floorCenter: { width: '100%', height: '100%', display: 'flex', flexDirection: 'column-reverse' },
+  floorCenter: {
+    width: '100%', height: '100%', display: 'flex', flexDirection: 'column-reverse',
+  },
   floorTileA: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileB: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileC: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileD: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileE: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
 
-  floorRight: { width: '100%', height: '100%', display: 'flex', flexDirection: 'column-reverse' },
+  floorRight: {
+    width: '100%', height: '100%', display: 'flex', flexDirection: 'column-reverse',
+  },
   floorTileAR: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileBR: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
   floorTileCR: { width: '100%', height: '100%', backgroundSize: '100% 100%' },
