@@ -34,7 +34,7 @@ export default {
     textShadow: '0 0 6px rgba(0, 0, 0, 0.9)',
     opacity: 1,
     animation: `flickerAnimation 2s infinite steps(${VARIABLES.ui.fps})`,
-    fontSize: 16,
+    fontSize: 12,
     display: 'block',
   },
   '@global': {

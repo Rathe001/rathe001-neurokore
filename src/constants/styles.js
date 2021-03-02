@@ -1,12 +1,7 @@
-import eotFont from 'assets/fonts/ManaspaceReg.eot';
-import woffFont from 'assets/fonts/ManaspaceReg.woff';
-import ttfFont from 'assets/fonts/ManaspaceReg.ttf';
-import svgFont from 'assets/fonts/ManaspaceReg.svg';
-
 export const JSS_RESET = {
   html: {
     boxSizing: 'border-box',
-    fontSize: 6,
+    fontSize: 5,
   },
   'html, body': {
     margin: 0,
@@ -40,9 +35,11 @@ export const JSS_RESET = {
 export const JSS_GLOBAL = {
   '*': {
     boxSizing: 'border-box',
-    fontFamily: 'ManaspaceReg',
+    fontFamily: "'Press Start 2P', monospace",
     letterSpacing: -0.25,
-    fontSize: 6,
+    wordSpacing: -1,
+    lineHeight: '1.5em',
+    fontSize: 4,
   },
   body: {
     background: '#000',
@@ -63,12 +60,6 @@ export const JSS_GLOBAL = {
   },
   'button:disabled': {
     opacity: 0.3,
-  },
-  '@font-face': {
-    fontFamily: 'ManaspaceReg',
-    src: `url("${eotFont}?#iefix") format("embedded-opentype"), url("${woffFont}") format("woff"), url("${ttfFont}") format("truetype"), url("${svgFont}#ManaspaceReg") format("svg")`,
-    fontWeight: 'normal',
-    fontStyle: 'normal',
   },
 };
 

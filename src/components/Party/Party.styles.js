@@ -5,6 +5,6 @@ export default {
     right: '0.5em',
     width: 110,
     height: 121,
-    fontSize: 6,
+    fontSize: 5,
   },
 };

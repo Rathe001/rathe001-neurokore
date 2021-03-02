@@ -9,7 +9,7 @@ export default {
     width: 150,
     padding: '5px 4px 3px 7px',
     color: '#7da4f4',
-    fontSize: 6,
+    fontSize: 4,
     background: '#031627',
     border: '1px solid #333',
     boxShadow: '0 0 7px rgba(0, 0, 0, 1), 0 0 7px rgba(0, 0, 0, 1)',

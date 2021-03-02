@@ -29,7 +29,7 @@ export default {
     width: 125,
   },
   name: {
-    fontSize: 8,
+    fontSize: 5,
   },
   col: {
     flex: 1,

@@ -8,6 +8,6 @@ export default {
     height: 33,
     overflow: 'hidden',
     color: '#fff',
-    fontSize: 6,
+    fontSize: 5,
   },
 };
