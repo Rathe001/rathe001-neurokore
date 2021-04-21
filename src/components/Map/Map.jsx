@@ -23,32 +23,31 @@ const Map = () => {
           marginBottom: statePosY * -5,
         }}
       >
-        {stateLevelData
-          && stateLevelData.data.map((row, y) => (
-            <div key={row.id} className={classes.row}>
-              {row.cells.map((cell, x) => (
+        {stateLevelData?.data?.map((row, y) => (
+          <div key={row.id} className={classes.row}>
+            {row.cells.map((cell, x) => (
+              <div
+                className={classnames(classes.col, {
+                  [classes.cellOpen]: cell.open && cell.explored,
+                })}
+                key={cell.id}
+              >
                 <div
-                  className={classnames(classes.col, {
-                    [classes.cellOpen]: cell.open && cell.explored,
-                  })}
-                  key={cell.id}
-                >
-                  <div
-                    className={classnames({
-                      [classes.activeColN]:
+                  className={classnames({
+                    [classes.activeColN]:
                         y === statePosY && x === statePosX && statePosFacing === 'n',
-                      [classes.activeColS]:
+                    [classes.activeColS]:
                         y === statePosY && x === statePosX && statePosFacing === 's',
-                      [classes.activeColE]:
+                    [classes.activeColE]:
                         y === statePosY && x === statePosX && statePosFacing === 'e',
-                      [classes.activeColW]:
+                    [classes.activeColW]:
                         y === statePosY && x === statePosX && statePosFacing === 'w',
-                    })}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
+                  })}
+                />
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

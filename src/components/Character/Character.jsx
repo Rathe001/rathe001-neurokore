@@ -47,6 +47,7 @@ const Character = ({
   });
   const [{ isDragging }, drag] = useDrag({
     item: { type: DND_ITEM_TYPES.CHARACTER, id, index },
+    type: 'CARD',
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),

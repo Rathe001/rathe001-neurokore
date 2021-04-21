@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "https://astigmapro.com/neurokore/static/js/main.a9079e26.chunk.js",
-    "main.js.map": "https://astigmapro.com/neurokore/static/js/main.a9079e26.chunk.js.map",
-    "runtime-main.js": "https://astigmapro.com/neurokore/static/js/runtime-main.b32de659.js",
-    "runtime-main.js.map": "https://astigmapro.com/neurokore/static/js/runtime-main.b32de659.js.map",
-    "static/js/2.985537d0.chunk.js": "https://astigmapro.com/neurokore/static/js/2.985537d0.chunk.js",
-    "static/js/2.985537d0.chunk.js.map": "https://astigmapro.com/neurokore/static/js/2.985537d0.chunk.js.map",
+    "main.js": "https://astigmapro.com/neurokore/static/js/main.f7097249.chunk.js",
+    "main.js.map": "https://astigmapro.com/neurokore/static/js/main.f7097249.chunk.js.map",
+    "runtime-main.js": "https://astigmapro.com/neurokore/static/js/runtime-main.639473af.js",
+    "runtime-main.js.map": "https://astigmapro.com/neurokore/static/js/runtime-main.639473af.js.map",
+    "static/js/2.3170f1e0.chunk.js": "https://astigmapro.com/neurokore/static/js/2.3170f1e0.chunk.js",
+    "static/js/2.3170f1e0.chunk.js.map": "https://astigmapro.com/neurokore/static/js/2.3170f1e0.chunk.js.map",
     "index.html": "https://astigmapro.com/neurokore/index.html",
-    "static/js/2.985537d0.chunk.js.LICENSE.txt": "https://astigmapro.com/neurokore/static/js/2.985537d0.chunk.js.LICENSE.txt",
+    "static/js/2.3170f1e0.chunk.js.LICENSE.txt": "https://astigmapro.com/neurokore/static/js/2.3170f1e0.chunk.js.LICENSE.txt",
     "static/media/bg-create-character.4f6bd32f.png": "https://astigmapro.com/neurokore/static/media/bg-create-character.4f6bd32f.png",
     "static/media/bg-inventory.76b25fcf.png": "https://astigmapro.com/neurokore/static/media/bg-inventory.76b25fcf.png",
     "static/media/bg-splash.cbf29e52.png": "https://astigmapro.com/neurokore/static/media/bg-splash.cbf29e52.png",
@@ -21,8 +21,8 @@
     "static/media/wallTech1.cc19225e.png": "https://astigmapro.com/neurokore/static/media/wallTech1.cc19225e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b32de659.js",
-    "static/js/2.985537d0.chunk.js",
-    "static/js/main.a9079e26.chunk.js"
+    "static/js/runtime-main.639473af.js",
+    "static/js/2.3170f1e0.chunk.js",
+    "static/js/main.f7097249.chunk.js"
   ]
 }

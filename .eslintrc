@@ -10,6 +10,9 @@
       }
     }
   },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "extends": ["airbnb"],
   "plugins": [],
   "rules": {
