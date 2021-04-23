@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.js": "https://astigmapro.com/neurokore/static/js/main.4cf81ac7.chunk.js",
-    "main.js.map": "https://astigmapro.com/neurokore/static/js/main.4cf81ac7.chunk.js.map",
-    "runtime-main.js": "https://astigmapro.com/neurokore/static/js/runtime-main.639473af.js",
-    "runtime-main.js.map": "https://astigmapro.com/neurokore/static/js/runtime-main.639473af.js.map",
-    "static/js/2.3170f1e0.chunk.js": "https://astigmapro.com/neurokore/static/js/2.3170f1e0.chunk.js",
-    "static/js/2.3170f1e0.chunk.js.map": "https://astigmapro.com/neurokore/static/js/2.3170f1e0.chunk.js.map",
-    "index.html": "https://astigmapro.com/neurokore/index.html",
-    "static/js/2.3170f1e0.chunk.js.LICENSE.txt": "https://astigmapro.com/neurokore/static/js/2.3170f1e0.chunk.js.LICENSE.txt",
-    "static/media/bg-create-character.4f6bd32f.png": "https://astigmapro.com/neurokore/static/media/bg-create-character.4f6bd32f.png",
-    "static/media/bg-inventory.76b25fcf.png": "https://astigmapro.com/neurokore/static/media/bg-inventory.76b25fcf.png",
-    "static/media/bg-splash.cbf29e52.png": "https://astigmapro.com/neurokore/static/media/bg-splash.cbf29e52.png",
-    "static/media/bg-ui.aac15687.png": "https://astigmapro.com/neurokore/static/media/bg-ui.aac15687.png",
-    "static/media/body-bg.c30f47ae.jpg": "https://astigmapro.com/neurokore/static/media/body-bg.c30f47ae.jpg",
-    "static/media/ceilingTech1.d4a60df4.png": "https://astigmapro.com/neurokore/static/media/ceilingTech1.d4a60df4.png",
-    "static/media/doorTech1.f5c1b951.png": "https://astigmapro.com/neurokore/static/media/doorTech1.f5c1b951.png",
-    "static/media/floorTech1.27364818.png": "https://astigmapro.com/neurokore/static/media/floorTech1.27364818.png",
-    "static/media/logo.bfe507c4.png": "https://astigmapro.com/neurokore/static/media/logo.bfe507c4.png",
-    "static/media/overlay-level.d300f968.png": "https://astigmapro.com/neurokore/static/media/overlay-level.d300f968.png",
-    "static/media/wallTech1.cc19225e.png": "https://astigmapro.com/neurokore/static/media/wallTech1.cc19225e.png"
+    "main.js": "https://astigmapro.com/rathe001-neurokore/static/js/main.f60965f1.chunk.js",
+    "main.js.map": "https://astigmapro.com/rathe001-neurokore/static/js/main.f60965f1.chunk.js.map",
+    "runtime-main.js": "https://astigmapro.com/rathe001-neurokore/static/js/runtime-main.95ed037b.js",
+    "runtime-main.js.map": "https://astigmapro.com/rathe001-neurokore/static/js/runtime-main.95ed037b.js.map",
+    "static/js/2.82c1cfbe.chunk.js": "https://astigmapro.com/rathe001-neurokore/static/js/2.82c1cfbe.chunk.js",
+    "static/js/2.82c1cfbe.chunk.js.map": "https://astigmapro.com/rathe001-neurokore/static/js/2.82c1cfbe.chunk.js.map",
+    "index.html": "https://astigmapro.com/rathe001-neurokore/index.html",
+    "static/js/2.82c1cfbe.chunk.js.LICENSE.txt": "https://astigmapro.com/rathe001-neurokore/static/js/2.82c1cfbe.chunk.js.LICENSE.txt",
+    "static/media/bg-create-character.4f6bd32f.png": "https://astigmapro.com/rathe001-neurokore/static/media/bg-create-character.4f6bd32f.png",
+    "static/media/bg-inventory.76b25fcf.png": "https://astigmapro.com/rathe001-neurokore/static/media/bg-inventory.76b25fcf.png",
+    "static/media/bg-splash.cbf29e52.png": "https://astigmapro.com/rathe001-neurokore/static/media/bg-splash.cbf29e52.png",
+    "static/media/bg-ui.aac15687.png": "https://astigmapro.com/rathe001-neurokore/static/media/bg-ui.aac15687.png",
+    "static/media/body-bg.c30f47ae.jpg": "https://astigmapro.com/rathe001-neurokore/static/media/body-bg.c30f47ae.jpg",
+    "static/media/ceilingTech1.d4a60df4.png": "https://astigmapro.com/rathe001-neurokore/static/media/ceilingTech1.d4a60df4.png",
+    "static/media/doorTech1.f5c1b951.png": "https://astigmapro.com/rathe001-neurokore/static/media/doorTech1.f5c1b951.png",
+    "static/media/floorTech1.27364818.png": "https://astigmapro.com/rathe001-neurokore/static/media/floorTech1.27364818.png",
+    "static/media/logo.bfe507c4.png": "https://astigmapro.com/rathe001-neurokore/static/media/logo.bfe507c4.png",
+    "static/media/overlay-level.d300f968.png": "https://astigmapro.com/rathe001-neurokore/static/media/overlay-level.d300f968.png",
+    "static/media/wallTech1.cc19225e.png": "https://astigmapro.com/rathe001-neurokore/static/media/wallTech1.cc19225e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.639473af.js",
-    "static/js/2.3170f1e0.chunk.js",
-    "static/js/main.4cf81ac7.chunk.js"
+    "static/js/runtime-main.95ed037b.js",
+    "static/js/2.82c1cfbe.chunk.js",
+    "static/js/main.f60965f1.chunk.js"
   ]
 }
