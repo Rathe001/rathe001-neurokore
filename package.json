@@ -2,7 +2,7 @@
   "name": "neurokore",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/neurokore",
+  "homepage": "/rathe001-neurokore",
   "dependencies": {
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
