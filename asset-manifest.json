@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "https://astigmapro.com/rathe001-neurokore/static/js/main.f60965f1.chunk.js",
-    "main.js.map": "https://astigmapro.com/rathe001-neurokore/static/js/main.f60965f1.chunk.js.map",
+    "main.js": "https://astigmapro.com/rathe001-neurokore/static/js/main.e818c521.chunk.js",
+    "main.js.map": "https://astigmapro.com/rathe001-neurokore/static/js/main.e818c521.chunk.js.map",
     "runtime-main.js": "https://astigmapro.com/rathe001-neurokore/static/js/runtime-main.95ed037b.js",
     "runtime-main.js.map": "https://astigmapro.com/rathe001-neurokore/static/js/runtime-main.95ed037b.js.map",
     "static/js/2.82c1cfbe.chunk.js": "https://astigmapro.com/rathe001-neurokore/static/js/2.82c1cfbe.chunk.js",
@@ -23,6 +23,6 @@
   "entrypoints": [
     "static/js/runtime-main.95ed037b.js",
     "static/js/2.82c1cfbe.chunk.js",
-    "static/js/main.f60965f1.chunk.js"
+    "static/js/main.e818c521.chunk.js"
   ]
 }
